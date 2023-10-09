@@ -1,0 +1,122 @@
+@extends('layout.default')
+@section('content')
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-10">
+            <form action="{{ route('forms.create.step.one.post') }}" method="POST">
+                @csrf
+
+                <div class="card">
+                    <div class="card-header">Data Sosio Demografi</div>
+
+                    <div class="card-body">
+
+                            @if ($errors->any())
+                                <div class="alert alert-danger">
+                                    <ul>
+                                        @foreach ($errors->all() as $error)
+                                            <li>{{ $error }}</li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            @endif
+
+                            <div class="form-group">
+                                <label for="title">Profesi:</label>
+                                <select class="form-control" id="profesi" name="profesi">
+                                    <option value="">Pilih Profesi</option>
+                                    <option value="PNS" {{ old('profesi', optional($forms)->profesi) === 'PNS' ? 'selected' : '' }}>PNS</option>
+                                    <option value="TNI / POLRI" {{ old('profesi', optional($forms)->profesi) === 'TNI / POLRI' ? 'selected' : '' }}>TNI / POLRI</option>
+                                    <option value="Pegawai" {{ old('profesi', optional($forms)->profesi) === 'Pegawai' ? 'selected' : '' }}>Pegawai</option>
+                                    <option value="Wiraswasta" {{ old('profesi', optional($forms)->profesi) === 'Wiraswasta' ? 'selected' : '' }}>Wiraswasta</option>
+                                    <option value="Pelajar / Mahasiswa" {{ old('profesi', optional($forms)->profesi) === 'Pelajar / Mahasiswa' ? 'selected' : '' }}>Pelajar / Mahasiswa</option>
+                                    <option value="Ibu Rumah Tangga" {{ old('profesi', optional($forms)->profesi) === 'Ibu Rumah Tangga' ? 'selected' : '' }}>Ibu Rumah Tangga</option>
+                                    <option value="Sedang Tidak Bekerja" {{ old('profesi', optional($forms)->profesi) === 'Sedang Tidak Bekerja' ? 'selected' : '' }}>Sedang Tidak Bekerja</option>
+                                    <option value="Lainnya" {{ old('profesi', optional($forms)->profesi) === 'Lainnya' ? 'selected' : '' }}>Lainnya</option>
+                                </select>
+                            </div>
+                            <div class="form-group" id="profesi_lainlain" style="display: none;">
+                                <label for="lainlain">Tuliskan Profesi Lainnya:</label>
+                                <input type="text" class="form-control" id="profesi_lain" name="profesi_lainnya" value="{{ old('profesi_lain', optional($forms)->profesi_lainnya) }}">
+                            </div>
+                            <div class="form-group">
+                                <label for="description">Umur (Tahun):</label>
+                                <input type="number" min="0" value="{{{ $forms->umur ?? '' }}}" class="form-control" id="umur" name="umur"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="description">Ukuran Keluarga (Orang):</label>
+                                <input type="number" min="0" value="{{{ $forms->ukuran_keluarga ?? '' }}}" class="form-control" id="ukuran_keluarga" name="ukuran_keluarga"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="description">Kedudukan Keluarga:</label>
+                                <select class="form-control" id="kedudukan_keluarga" name="kedudukan_keluarga">
+                                    <option value="">Pilih Kedudukan Keluarga</option>
+                                    <option value="Suami" {{ optional($forms)->kedudukan_keluarga === 'Suami' ? 'selected' : '' }}>Suami</option>
+                                    <option value="Istri" {{ optional($forms)->kedudukan_keluarga === 'Istri' ? 'selected' : '' }}>Istri</option>
+                                    <option value="Anak" {{ optional($forms)->kedudukan_keluarga === 'Anak' ? 'selected' : '' }}>Anak</option>
+                                    <option value="Lajang" {{ optional($forms)->kedudukan_keluarga === 'Lajang' ? 'selected' : '' }}>Lajang / Single</option>
+                                    <!-- Add more options as needed -->
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="description">Maksud Perjalanan:</label>
+                                <select class="form-control" id="maksud_perjalanan" name="maksud_perjalanan">
+                                    <option value="">Pilih Maksud Perjalanan</option>
+                                    <option value="Bekerja" {{ old('maksud_perjalanan') === 'Bekerja' ? 'selected' : '' }}>Bekerja</option>
+                                    <option value="Sekolah / Kuliah" {{ old('maksud_perjalanan') === 'Sekolah / Kuliah' ? 'selected' : '' }}>Sekolah / Kuliah</option>
+                                    <option value="Belanja" {{ old('maksud_perjalanan') === 'Belanja' ? 'selected' : '' }}>Belanja</option>
+                                    <option value="Wisata" {{ old('maksud_perjalanan') === 'Wisata' ? 'selected' : '' }}>Wisata</option>
+                                    <option value="Lain-lain" {{ old('maksud_perjalanan') === 'Lain-lain' ? 'selected' : '' }}>Lain-lain</option>
+                                    <!-- Add more options as needed -->
+                                </select>
+                            </div>
+                            <div class="form-group" id="lainlain_field" style="display: none;">
+                                <label for="lainlain">Tuliskan Maksud Perjalanan:</label>
+                                <input type="text" class="form-control" id="lainlain" name="tulis_maksud" value="{{ old('tulis_maksud', optional($forms)->tulis_maksud) }}">
+                            </div>
+                            <div class="form-group">
+                                <label for="description">Perjalanan Berangkat atau Pulang:</label><br/>
+                                <label class="radio-inline"><input type="radio" name="berangkat_pulang" value="Berangkat" {{{ (isset($forms->berangakat_pulang) && $forms->berangakat_pulang == 'Berangkat') ? "checked" : "" }}}>Berangkat</label><br/>
+                                <label class="radio-inline"><input type="radio" name="berangkat_pulang" value="Pulang" {{{ (isset($forms->berangakat_pulang) && $forms->berangakat_pulang == 'Pulang') ? "checked" : "" }}}>Pulang</label>
+                            </div>
+                            <div class="form-group">
+                                <label for="description">Frekuensi Perjalanan (Kali/Minggu):</label>
+                                <input type="number" min="0" value="{{{ $forms->frekuensi_perjalanan ?? '' }}}" class="form-control" id="frekuensi_perjalanan" name="frekuensi_perjalanan"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="description">Kendaraan Pribadi</label><br/>
+                                <label class="radio-inline"><input type="radio" name="kendaraan_pribadi" value="1" {{{ (isset($forms->kendaraan_pribadi) && $forms->kendaraan_pribadi == '1') ? "checked" : "" }}}> Punya</label><br/>
+                                <label class="radio-inline"><input type="radio" name="kendaraan_pribadi" value="0" {{{ (isset($forms->kendaraan_pribadi) && $forms->kendaraan_pribadi == '0') ? "checked" : "" }}}> Tidak</label>
+                            </div>
+
+                    </div>
+
+                    <div class="card-footer text-right">
+                        <button type="submit" class="btn btn-primary">Berikutnya</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        document.getElementById('profesi').addEventListener('change', function () {
+            var profesiLainlain = document.getElementById('profesi_lainlain');
+            if (this.value === 'Lainnya') {
+                profesiLainlain.style.display = 'block';
+            } else {
+                profesiLainlain.style.display = 'none';
+            }
+        });
+
+        document.getElementById('maksud_perjalanan').addEventListener('change', function () {
+            var profesiLainlain = document.getElementById('lainlain_field');
+            if (this.value === 'Lain-lain') {
+                profesiLainlain.style.display = 'block';
+            } else {
+                profesiLainlain.style.display = 'none';
+            }
+        });
+    </script>
+</div>
+@endsection
