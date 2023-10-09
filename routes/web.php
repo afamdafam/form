@@ -15,15 +15,15 @@ use App\Http\Controllers\FormController;
 |
 */
 
-Route::get('forms', [FormController::class,'index'])->name('forms.index');
+Route::get('/', [FormController::class,'index'])->name('forms.index');
 
-Route::get('forms/create-step-one', [FormController::class,'createStepOne'])->name('forms.create.step.one');
+Route::get('/create-step-one', [FormController::class,'createStepOne'])->name('forms.create.step.one');
 
-Route::post('forms/create-step-one', [FormController::class,'postCreateStepOne'])->name('forms.create.step.one.post');
+Route::post('/create-step-one', [FormController::class,'postCreateStepOne'])->name('forms.create.step.one.post');
 
-Route::get('forms/create-step-two-1', [FormController::class,'createStepTwo1'])->name('forms.create.step.two.1');
+Route::get('/create-step-two-1', [FormController::class,'createStepTwo1'])->name('forms.create.step.two.1');
 
-Route::post('forms/create-step-two-1', [FormController::class,'postCreateStepTwo1'])->name('forms.create.step.two.post.1');
+Route::post('/create-step-two-1', [FormController::class,'postCreateStepTwo1'])->name('forms.create.step.two.post.1');
 
 Route::get('/create-step-two-2', [FormController::class,'createStepTwo2'])->name('forms.create.step.two.2');
 

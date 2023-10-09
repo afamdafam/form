@@ -7,7 +7,7 @@
                 @csrf
 
                 <div class="card">
-                    <div class="card-header">Data Tujuan</div>
+                    <div class="card-header">Data Alamat Tujuan</div>
 
                     <div class="card-body">
 
@@ -31,17 +31,19 @@
                                         <input type="text" class="form-control" value="{{ $forms->tujuan_longitude ?? ''}}" placeholder="0" name="tujuan_longitude" id="lng" readonly>
                                     </div>
                                 </div>
+                                <div class="row">
+                                    <div class="col-6">
+                                        <label for="">Kecamatan</label>
+                                        <input type="text" class="form-control" value="{{ $forms->tujuan_kecamatan?? ''}}" placeholder="-" name="tujuan_kecamatan" id="kecamatan" readonly>
+                                    </div>
+                                    <div class="col-6">
+                                        <label for="kelurahan">Kelurahan</label>
+                                        <input type="text" class="form-control" value="{{ $forms->tujuan_kelurahan?? ''}}" placeholder="-" name="tujuan_kelurahan" id="kelurahan" readonly>
+                                    </div>
+                                </div>
                                 <div class="form-group">
-                                    <label for="kota">Kota Tujuan</label>
-                                    <select class="form-control" id="tujuan_kota" name="tujuan_kota">
-                                        <option value="">Pilih Kota</option>
-                                        <option value="Jakarta" {{ optional($forms)->tujuan_kota === 'Jakarta' ? 'selected' : '' }}>Jakarta</option>
-                                        <option value="Bogor" {{ optional($forms)->tujuan_kota === 'Bogor' ? 'selected' : '' }}>Bogor</option>
-                                        <option value="Depok" {{ optional($forms)->tujuan_kota === 'Depok' ? 'selected' : '' }}>Depok</option>
-                                        <option value="Tangerang" {{ optional($forms)->tujuan_kota === 'Tangerang' ? 'selected' : '' }}>Tangerang</option>
-                                        <option value="Bekasi" {{ optional($forms)->tujuan_kota === 'Bekasi' ? 'selected' : '' }}>Bekasi</option>
-                                        <option value="Lainnya" {{ optional($forms)->tujuan_kota === 'Lainnya' ? 'selected' : '' }}>Lainnya</option>
-                                    </select>
+                                    <label for="kelurahan">Kota</label>
+                                    <input type="text" class="form-control" value="{{ $forms->tujuan_kota?? ''}}" placeholder="-" name="tujuan_kota" id="kota" readonly>
                                 </div>
                                 <div id="map" style="height:400px; width: 400px;" class="my-6"></div>
 
@@ -67,7 +69,32 @@
                                                 let lng = marker.position.lng()
                                                 $('#lat').val(lat)
                                                 $('#lng').val(lng)
-                                            })
+
+                                                // Perform reverse geocoding to get kecamatan, kelurahan, and kota
+                                                const geocoder = new google.maps.Geocoder();
+                                                const latLng = new google.maps.LatLng(lat, lng);
+
+                                                geocoder.geocode({ 'latLng': latLng }, function (results, status) {
+                                                    if (status === google.maps.GeocoderStatus.OK) {
+                                                        if (results[0]) {
+                                                            for (let i = 0; i < results[0].address_components.length; i++) {
+                                                                const addressType = results[0].address_components[i].types[0];
+                                                                const addressLongName = results[0].address_components[i].long_name;
+
+                                                                if (addressType === 'administrative_area_level_3') {
+                                                                    $('#kecamatan').val(addressLongName);
+                                                                }
+                                                                if (addressType === 'administrative_area_level_4') {
+                                                                    $('#kelurahan').val(addressLongName);
+                                                                }
+                                                                if (addressType === 'administrative_area_level_2') {
+                                                                    $('#kota').val(addressLongName);
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                });
+                                            });
 
                                         google.maps.event.addListener(map,'click',
                                         function (event){
@@ -76,8 +103,8 @@
                                         })
                                     }
                                 </script>
-                                <script async defer src="https://maps.googleapis.com/maps/api/js?key=&callback=initMap"
-                                        type="text/javascript"></script>
+                                <script async defer src="https://maps.googleapis.com/maps/api/js?key={{ config('services.google_maps.api_key') }}&callback=initMap"
+                                type="text/javascript"></script>
                             </div>
 
                     </div>

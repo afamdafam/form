@@ -24,6 +24,7 @@ class FormController extends Controller
     {
         $validatedData = $request->validate([
             'profesi' => 'required',
+            'jenis_kelamin' => 'required',
             'umur' => 'required|numeric',
             'ukuran_keluarga' => 'required|numeric',
             'kedudukan_keluarga' => 'required',
@@ -58,6 +59,8 @@ class FormController extends Controller
     public function postCreateStepTwo1(Request $request)
     {
         $validatedData = $request->validate([
+            'alamat_kecamatan' => 'required',
+            'alamat_kelurahan' => 'required',
             'alamat_kota' => 'required',
             'alamat_latitude' => 'required',
             'alamat_longitude' => 'required'
@@ -81,6 +84,8 @@ class FormController extends Controller
     public function postCreateStepTwo2(Request $request)
     {
         $validatedData = $request->validate([
+            'tujuan_kecamatan' => 'required',
+            'tujuan_kelurahan' => 'required',
             'tujuan_kota' => 'required',
             'tujuan_latitude' => 'required',
             'tujuan_longitude' => 'required'
@@ -161,7 +166,8 @@ class FormController extends Controller
     public function postCreateStepFourB1(Request $request)
     {
         $validatedData = $request->validate([
-            'deskripsi_kendaraan' => 'required',
+            'deskripsi_kendaraan_motor' => 'required|numeric',
+            'deskripsi_kendaraan_mobil' => 'required|numeric',
             'biaya_parkir' => 'required|numeric',
             'biaya_bbm' => 'required|numeric',
             'perjalanan_total' => 'required|numeric',

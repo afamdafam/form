@@ -40,6 +40,11 @@
                                 <input type="text" class="form-control" id="profesi_lain" name="profesi_lainnya" value="{{ old('profesi_lain', optional($forms)->profesi_lainnya) }}">
                             </div>
                             <div class="form-group">
+                                <label for="description">Jenis Kelamin:</label><br/>
+                                <label class="radio-inline"><input type="radio" name="jenis_kelamin" value="Laki-laki" {{{ (isset($forms->jenis_kelamin) && $forms->jenis_kelamin == 'Laki-laki') ? "checked" : "" }}}> Laki-laki</label><br/>
+                                <label class="radio-inline"><input type="radio" name="jenis_kelamin" value="Perempuan" {{{ (isset($forms->jenis_kelamin) && $forms->jenis_kelamin == 'Perempuan') ? "checked" : "" }}}> Perempuan</label><br>
+                            </div>
+                            <div class="form-group">
                                 <label for="description">Umur (Tahun):</label>
                                 <input type="number" min="0" value="{{{ $forms->umur ?? '' }}}" class="form-control" id="umur" name="umur"/>
                             </div>
@@ -76,8 +81,9 @@
                             </div>
                             <div class="form-group">
                                 <label for="description">Perjalanan Berangkat atau Pulang:</label><br/>
-                                <label class="radio-inline"><input type="radio" name="berangkat_pulang" value="Berangkat" {{{ (isset($forms->berangakat_pulang) && $forms->berangakat_pulang == 'Berangkat') ? "checked" : "" }}}>Berangkat</label><br/>
-                                <label class="radio-inline"><input type="radio" name="berangkat_pulang" value="Pulang" {{{ (isset($forms->berangakat_pulang) && $forms->berangakat_pulang == 'Pulang') ? "checked" : "" }}}>Pulang</label>
+                                <label class="radio-inline"><input type="radio" name="berangkat_pulang" value="Berangkat" {{{ (isset($forms->berangakat_pulang) && $forms->berangakat_pulang == 'Berangkat') ? "checked" : "" }}}> Berangkat</label><br/>
+                                <label class="radio-inline"><input type="radio" name="berangkat_pulang" value="Pulang" {{{ (isset($forms->berangakat_pulang) && $forms->berangakat_pulang == 'Pulang') ? "checked" : "" }}}> Pulang</label><br>
+                                <label class="radio-inline"><input type="radio" name="berangkat_pulang" value="Berangkat dan Pulang" {{{ (isset($forms->berangakat_pulang) && $forms->berangakat_pulang == 'Berangkat dan Pulang') ? "checked" : "" }}}> Berangkat dan Pulang</label>
                             </div>
                             <div class="form-group">
                                 <label for="description">Frekuensi Perjalanan (Kali/Minggu):</label>

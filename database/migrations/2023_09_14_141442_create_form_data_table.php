@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('profesi')->nullable();
             $table->string('profesi_lainnya')->nullable();
+            $table->string('jenis_kelamin')->nullable();
             $table->integer('umur')->nullable();
             $table->integer('ukuran_keluarga')->nullable();
             $table->string('kedudukan_keluarga')->nullable();
@@ -23,9 +24,13 @@ return new class extends Migration
             $table->string('berangkat_pulang')->nullable();
             $table->integer('frekuensi_perjalanan')->nullable();
             $table->boolean('kendaraan_pribadi')->default(0);
+            $table->string('alamat_kecamatan')->nullable();
+            $table->string('alamat_kelurahan')->nullable();
             $table->string('alamat_kota')->nullable();
             $table->float('alamat_latitude')->nullable();
             $table->float('alamat_longitude')->nullable();
+            $table->string('tujuan_kecamatan')->nullable();
+            $table->string('tujuan_kelurahan')->nullable();
             $table->string('tujuan_kota')->nullable();
             $table->float('tujuan_latitude')->nullable();
             $table->float('tujuan_longitude')->nullable();
