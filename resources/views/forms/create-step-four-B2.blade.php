@@ -22,32 +22,33 @@
                             @endif
 
                             <div class="form-group">
-                                <label>Jenis Kendaraan Umum yang digunakan dalam sekali trip (boleh pilih lebih dari 1):</label>
+                                <label>Jenis Kendaraan Umum yang digunakan dalam sekali trip (boleh pilih lebih dari 1):</label>
                                 <div>
-                                    <input type="checkbox" id="krl" name="jenis_kendaraan_krl" value="1" {{ $forms->jenis_kendaraan_krl ? 'checked' : '' }}>
+                                    <input type="checkbox" id="krl" name="jenis_kendaraan_krl" value="1" {{ isset($forms) && $forms->jenis_kendaraan_krl ? 'checked' : '' }}>
                                     <label for="krl">KRL</label>
                                 </div>
                                 <div>
-                                    <input type="checkbox" id="lrt" name="jenis_kendaraan_lrt" value="1" {{ $forms->jenis_kendaraan_lrt ? 'checked' : '' }}>
+                                    <input type="checkbox" id="lrt" name="jenis_kendaraan_lrt" value="1" {{ isset($forms) && $forms->jenis_kendaraan_lrt ? 'checked' : '' }}>
                                     <label for="lrt">LRT</label>
                                 </div>
                                 <div>
-                                    <input type="checkbox" id="mrt" name="jenis_kendaraan_mrt" value="1" {{ $forms->jenis_kendaraan_mrt ? 'checked' : '' }}>
+                                    <input type="checkbox" id="mrt" name="jenis_kendaraan_mrt" value="1" {{ isset($forms) && $forms->jenis_kendaraan_mrt ? 'checked' : '' }}>
                                     <label for="mrt">MRT</label>
                                 </div>
                                 <div>
-                                    <input type="checkbox" id="brt" name="jenis_kendaraan_brt" value="1" {{ $forms->jenis_kendaraan_brt ? 'checked' : '' }}>
+                                    <input type="checkbox" id="brt" name="jenis_kendaraan_brt" value="1" {{ isset($forms) && $forms->jenis_kendaraan_brt ? 'checked' : '' }}>
                                     <label for="brt">BRT</label>
                                 </div>
                                 <div>
-                                    <input type="checkbox" id="angkutan_kota" name="jenis_kendaraan_angkutan_kota" value="1" {{ $forms->jenis_kendaraan_angkutan_kota ? 'checked' : '' }}>
+                                    <input type="checkbox" id="angkutan_kota" name="jenis_kendaraan_angkutan_kota" value="1" {{ isset($forms) && $forms->jenis_kendaraan_angkutan_kota ? 'checked' : '' }}>
                                     <label for="angkutan_kota">Angkutan Kota</label>
                                 </div>
                                 <div>
-                                    <input type="checkbox" id="ojol" name="jenis_kendaraan_ojol" value="1" {{ $forms->jenis_kendaraan_ojol ? 'checked' : '' }}>
+                                    <input type="checkbox" id="ojol" name="jenis_kendaraan_ojol" value="1" {{ isset($forms) && $forms->jenis_kendaraan_ojol ? 'checked' : '' }}>
                                     <label for="ojol">Ojol</label>
                                 </div>
                             </div>
+
 
                             <div class="form-group">
                                 <label for="title">Total Tarif / Biaya yang Harus Dibayar (Rp/hari, tanpa titik atau koma):</label>
