@@ -48,7 +48,7 @@
                                 <input type="text"  value="{{{ $forms->perjalanan_total ?? '' }}}" class="form-control" id="perjalanan_total" name="perjalanan_total"/>
                             </div>
                             <div class="form-group">
-                                <label for="description">Preferensi/keinginan menggunakan kendaraan pribadi dibanding kendaraan umum (%):</label>
+                                <label for="description">Preferensi / Keinginan Menggunakan Kendaraan Pribadi Dibanding Kendaraan Umum (%):</label>
                                 <input type="text"  value="{{{ $forms->preferensi_pribadi ?? '' }}}" class="form-control" id="preferensi_pribadi" name="preferensi_pribadi"/>
                                 <h6> Dari skala 0-100, tanpa tanda '%'</h6>
                             </div>

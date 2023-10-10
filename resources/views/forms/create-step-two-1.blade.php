@@ -7,7 +7,7 @@
                 @csrf
 
                 <div class="card">
-                    <div class="card-header">Data Alamat Asal</div>
+                    <div class="card-header">Data Alamat Asal / Awal Perjalanan</div>
 
                     <div class="card-body">
 

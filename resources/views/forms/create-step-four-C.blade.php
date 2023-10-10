@@ -50,27 +50,27 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="title">Tarif (Rp/hari, tanpa titik atau koma):</label>
+                                <label for="title">Total Tarif / Biaya yang Harus Dibayar (Rp/hari, tanpa titik atau koma):</label>
                                 <input type="text" value="{{ $forms->tarif ?? '' }}" class="form-control" id="tarif"  name="tarif">
                             </div>
                             <div class="form-group">
-                                <label for="description">Waktu Transfer (Menit):</label>
+                                <label for="description">Waktu Pindah Antar Angkutan Umum / Transfer (Menit):</label>
                                 <input type="text"  value="{{{ $forms->waktu_transfer ?? '' }}}" class="form-control" id="waktu_transfer" name="waktu_transfer"/>
                             </div>
                             <div class="form-group">
-                                <label for="description">Waktu perjalanan menuju tempat henti (Menit):</label>
+                                <label for="description">Waktu Perjalanan Menuju Tempat Henti Angkutan Massal (Menit):</label>
                                 <input type="text"  value="{{{ $forms->waktu_transit ?? '' }}}" class="form-control" id="waktu_transit" name="waktu_transit"/>
                             </div>
                             <div class="form-group">
-                                <label for="description">Waktu tunggu (Menit):</label>
+                                <label for="description">Waktu Tunggu Kedatangan Angkutan Massal (Menit):</label>
                                 <input type="text"  value="{{{ $forms->waktu_tunggu ?? '' }}}" class="form-control" id="waktu_tunggu" name="waktu_tunggu"/>
                             </div>
                             <div class="form-group">
-                                <label for="description">Waktu perjalanan di atas kendaraan umum massal (Menit):</label>
+                                <label for="description">Waktu Perjalanan di Atas Kendaraan Umum Massal (Menit):</label>
                                 <input type="text"  value="{{{ $forms->waktu_perjalanan ?? '' }}}" class="form-control" id="waktu_perjalanan" name="waktu_perjalanan"/>
                             </div>
                             <div class="form-group">
-                                <label for="description">Waktu Total Perjalanan menuju tujuan perjalanan (Menit):</label>
+                                <label for="description">Waktu Total Perjalanan Menuju Tujuan Perjalanan (Menit):</label>
                                 <input type="text"  value="{{{ $forms->waktu_total ?? '' }}}" class="form-control" id="waktu_total" name="waktu_total"/>
                             </div>
                             <div class="form-group">
@@ -78,7 +78,7 @@
                                 <input type="text"  value="{{{ $forms->waktu_total ?? '' }}}" class="form-control" id="pendapatan" name="pendapatan"/>
                             </div>
                             <div class="form-group">
-                                <label for="description">Preferensi/keinginan menggunakan kendaraan umum dibanding kendaraan pribadi (%):</label>
+                                <label for="description">Preferensi / Keinginan Menggunakan Kendaraan Umum Dibanding Kendaraan Pribadi (%):</label>
                                 <input type="text"  value="{{{ $forms->preferensi_umum ?? '' }}}" class="form-control" id="preferensi_umum" name="preferensi_umum"/>
                                 <h6> Dari skala 0-100, tanpa tanda '%'</h6>
                             </div>
