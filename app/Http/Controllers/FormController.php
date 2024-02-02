@@ -23,16 +23,15 @@ class FormController extends Controller
     public function postCreateStepOne(Request $request)
     {
         $validatedData = $request->validate([
+            'telepon' => 'numeric',
             'profesi' => 'required',
             'jenis_kelamin' => 'required',
             'umur' => 'required|numeric',
             'ukuran_keluarga' => 'required|numeric',
             'kedudukan_keluarga' => 'required',
-            'maksud_perjalanan' => 'required',
-            'berangkat_pulang' => 'required',
-            'frekuensi_perjalanan' => 'required|numeric',
             'kendaraan_pribadi' => 'required',
-
+            'deskripsi_kendaraan_motor' => 'numeric',
+            'deskripsi_kendaraan_mobil' => 'numeric',
         ]);
 
         if(empty($request->session()->get('form_data'))){
@@ -135,12 +134,19 @@ class FormController extends Controller
     public function postCreateStepFourA(Request $request)
     {
         $validatedData = $request->validate([
-            'deskripsi_kendaraan_motor' => 'required|numeric',
-            'deskripsi_kendaraan_mobil' => 'required|numeric',
+            'maksud_perjalanan' => 'required',
+            'frekuensi_perjalanan' => 'required|numeric',
+            'kendaraan_berangkat_mobil' => 'required_without_all:kendaraan_berangkat_motor,kendaraan_berangkat_lainnya',
+            'kendaraan_berangkat_motor' => 'required_without_all:kendaraan_berangkat_mobil,kendaraan_berangkat_lainnya',
+            'kendaraan_berangkat_lainnya' => 'required_without_all:kendaraan_berangkat_mobil,kendaraan_berangkat_motor',
+            'kendaraan_pulang_mobil' => 'required_without_all:kendaraan_pulang_motor,kendaraan_pulang_lainnya',
+            'kendaraan_pulang_motor' => 'required_without_all:kendaraan_pulang_mobil,kendaraan_pulang_lainnya',
+            'kendaraan_pulang_lainnya' => 'required_without_all:kendaraan_pulang_mobil,kendaraan_pulang_motor',
             'biaya_parkir' => 'required|numeric',
             'biaya_bbm' => 'required|numeric',
             'perjalanan_total' => 'required|numeric',
-            'preferensi_pribadi' => 'required|numeric'
+            'pendapatan' => 'required|numeric',
+            'preferensi' => 'required|numeric'
         ]);
 
         $forms = $request->session()->get('form_data');
@@ -166,11 +172,37 @@ class FormController extends Controller
     public function postCreateStepFourB1(Request $request)
     {
         $validatedData = $request->validate([
-            'deskripsi_kendaraan_motor' => 'required|numeric',
-            'deskripsi_kendaraan_mobil' => 'required|numeric',
-            'biaya_parkir' => 'required|numeric',
-            'biaya_bbm' => 'required|numeric',
-            'perjalanan_total' => 'required|numeric',
+            'maksud_perjalanan' => 'required',
+            'frekuensi_perjalanan' => 'required|numeric',
+            'kendaraan_berangkat_krl' => 'required_without_all:kendaraan_berangkat_lrt,kendaraan_berangkat_mrt,kendaraan_berangkat_brt,kendaraan_berangkat_angkutan_kota,kendaraan_berangkat_ojol',
+            'kendaraan_berangkat_lrt' => 'required_without_all:kendaraan_berangkat_krl,kendaraan_berangkat_mrt,kendaraan_berangkat_brt,kendaraan_berangkat_angkutan_kota,kendaraan_berangkat_ojol',
+            'kendaraan_berangkat_mrt' => 'required_without_all:kendaraan_berangkat_krl,kendaraan_berangkat_lrt,kendaraan_berangkat_brt,kendaraan_berangkat_angkutan_kota,kendaraan_berangkat_ojol',
+            'kendaraan_berangkat_brt' => 'required_without_all:kendaraan_berangkat_krl,kendaraan_berangkat_lrt,kendaraan_berangkat_mrt,kendaraan_berangkat_angkutan_kota,kendaraan_berangkat_ojol',
+            'kendaraan_berangkat_angkutan_kota' => 'required_without_all:kendaraan_berangkat_krl,kendaraan_berangkat_lrt,kendaraan_berangkat_mrt,kendaraan_berangkat_brt,kendaraan_berangkat_ojol',
+            'kendaraan_berangkat_ojol' => 'required_without_all:kendaraan_berangkat_krl,kendaraan_berangkat_lrt,kendaraan_berangkat_mrt,kendaraan_berangkat_brt,kendaraan_berangkat_angkutan_kota',
+            'kendaraan_pulang_krl' => 'required_without_all:kendaraan_pulang_lrt,kendaraan_pulang_mrt,kendaraan_pulang_brt,kendaraan_pulang_angkutan_kota,kendaraan_pulang_ojol',
+            'kendaraan_pulang_lrt' => 'required_without_all:kendaraan_pulang_krl,kendaraan_pulang_mrt,kendaraan_pulang_brt,kendaraan_pulang_angkutan_kota,kendaraan_pulang_ojol',
+            'kendaraan_pulang_mrt' => 'required_without_all:kendaraan_pulang_krl,kendaraan_pulang_lrt,kendaraan_pulang_brt,kendaraan_pulang_angkutan_kota,kendaraan_pulang_ojol',
+            'kendaraan_pulang_brt' => 'required_without_all:kendaraan_pulang_krl,kendaraan_pulang_lrt,kendaraan_pulang_mrt,kendaraan_pulang_angkutan_kota,kendaraan_pulang_ojol',
+            'kendaraan_pulang_angkutan_kota' => 'required_without_all:kendaraan_pulang_krl,kendaraan_pulang_lrt,kendaraan_pulang_mrt,kendaraan_pulang_brt,kendaraan_pulang_ojol',
+            'kendaraan_pulang_ojol' => 'required_without_all:kendaraan_pulang_krl,kendaraan_pulang_lrt,kendaraan_pulang_mrt,kendaraan_pulang_brt,kendaraan_pulang_angkutan_kota',
+            'tarif' => 'required|numeric',
+            'waktu_transit' => 'required|numeric',
+            'transport_henti_jalan_kaki' => 'required_without_all:transport_henti_ojol,transport_henti_angkutan_umum_lain,transport_henti_diantar,transport_henti_pribadi',
+            'transport_henti_ojol' => 'required_without_all:transport_henti_jalan_kaki,transport_henti_angkutan_umum_lain,transport_henti_diantar,transport_henti_pribadi',
+            'transport_henti_angkutan_umum_lain' => 'required_without_all:transport_henti_jalan_kaki,transport_henti_ojol,transport_henti_diantar,transport_henti_pribadi',
+            'transport_henti_diantar' => 'required_without_all:transport_henti_jalan_kaki,transport_henti_ojol,transport_henti_angkutan_umum_lain,transport_henti_pribadi',
+            'transport_henti_pribadi' => 'required_without_all:transport_henti_jalan_kaki,transport_henti_ojol,transport_henti_angkutan_umum_lain,transport_henti_diantar',
+            'waktu_tunggu' => 'required|numeric',
+            'waktu_perjalanan' => 'required|numeric',
+            'waktu_henti_tujuan' => 'required|numeric',
+            'transport_akhir_jalan_kaki' => 'required_without_all:transport_akhir_ojol,transport_akhir_angkutan_umum_lain,transport_akhir_diantar,transport_akhir_pribadi',
+            'transport_akhir_ojol' => 'required_without_all:transport_akhir_jalan_kaki,transport_akhir_angkutan_umum_lain,transport_akhir_diantar,transport_akhir_pribadi',
+            'transport_akhir_angkutan_umum_lain' => 'required_without_all:transport_akhir_jalan_kaki,transport_akhir_ojol,transport_akhir_diantar,transport_akhir_pribadi',
+            'transport_akhir_diantar' => 'required_without_all:transport_akhir_jalan_kaki,transport_akhir_ojol,transport_akhir_angkutan_umum_lain,transport_akhir_pribadi',
+            'transport_akhir_pribadi' => 'required_without_all:transport_akhir_jalan_kaki,transport_akhir_ojol,transport_akhir_angkutan_umum_lain,transport_akhir_diantar',
+            'waktu_total' => 'required|numeric',
+            'pendapatan' => 'required|numeric',
         ]);
 
         $forms = $request->session()->get('form_data');
@@ -192,20 +224,10 @@ class FormController extends Controller
     public function postCreateStepFourB2(Request $request)
     {
         $validatedData = $request->validate([
-            'jenis_kendaraan_krl' => 'required_without_all:jenis_kendaraan_lrt,jenis_kendaraan_mrt,jenis_kendaraan_brt,jenis_kendaraan_angkutan_kota,jenis_kendaraan_ojol',
-            'jenis_kendaraan_lrt' => 'required_without_all:jenis_kendaraan_krl,jenis_kendaraan_mrt,jenis_kendaraan_brt,jenis_kendaraan_angkutan_kota,jenis_kendaraan_ojol',
-            'jenis_kendaraan_mrt' => 'required_without_all:jenis_kendaraan_krl,jenis_kendaraan_lrt,jenis_kendaraan_brt,jenis_kendaraan_angkutan_kota,jenis_kendaraan_ojol',
-            'jenis_kendaraan_brt' => 'required_without_all:jenis_kendaraan_krl,jenis_kendaraan_lrt,jenis_kendaraan_mrt,jenis_kendaraan_angkutan_kota,jenis_kendaraan_ojol',
-            'jenis_kendaraan_angkutan_kota' => 'required_without_all:jenis_kendaraan_krl,jenis_kendaraan_lrt,jenis_kendaraan_mrt,jenis_kendaraan_brt,jenis_kendaraan_ojol',
-            'jenis_kendaraan_ojol' => 'required_without_all:jenis_kendaraan_krl,jenis_kendaraan_lrt,jenis_kendaraan_mrt,jenis_kendaraan_brt,jenis_kendaraan_angkutan_kota',
-            'tarif' => 'required|numeric',
-            'waktu_transfer' => 'required|numeric',
-            'waktu_transit' => 'required|numeric',
-            'waktu_tunggu' => 'required|numeric',
-            'waktu_perjalanan' => 'required|numeric',
-            'waktu_total' => 'required|numeric',
-            'pendapatan' => 'required|numeric',
-            'preferensi_umum' => 'required|numeric'
+            'biaya_parkir' => 'required|numeric',
+            'biaya_bbm' => 'required|numeric',
+            'perjalanan_total' => 'required|numeric',
+            'preferensi' => 'required|numeric'
         ]);
 
         $forms = $request->session()->get('form_data');
@@ -230,20 +252,38 @@ class FormController extends Controller
     public function postCreateStepFourC(Request $request)
     {
         $validatedData = $request->validate([
-            'jenis_kendaraan_krl' => 'required_without_all:jenis_kendaraan_lrt,jenis_kendaraan_mrt,jenis_kendaraan_brt,jenis_kendaraan_angkutan_kota,jenis_kendaraan_ojol',
-            'jenis_kendaraan_lrt' => 'required_without_all:jenis_kendaraan_krl,jenis_kendaraan_mrt,jenis_kendaraan_brt,jenis_kendaraan_angkutan_kota,jenis_kendaraan_ojol',
-            'jenis_kendaraan_mrt' => 'required_without_all:jenis_kendaraan_krl,jenis_kendaraan_lrt,jenis_kendaraan_brt,jenis_kendaraan_angkutan_kota,jenis_kendaraan_ojol',
-            'jenis_kendaraan_brt' => 'required_without_all:jenis_kendaraan_krl,jenis_kendaraan_lrt,jenis_kendaraan_mrt,jenis_kendaraan_angkutan_kota,jenis_kendaraan_ojol',
-            'jenis_kendaraan_angkutan_kota' => 'required_without_all:jenis_kendaraan_krl,jenis_kendaraan_lrt,jenis_kendaraan_mrt,jenis_kendaraan_brt,jenis_kendaraan_ojol',
-            'jenis_kendaraan_ojol' => 'required_without_all:jenis_kendaraan_krl,jenis_kendaraan_lrt,jenis_kendaraan_mrt,jenis_kendaraan_brt,jenis_kendaraan_angkutan_kota',
+            'maksud_perjalanan' => 'required',
+            'frekuensi_perjalanan' => 'required|numeric',
+            'kendaraan_berangkat_krl' => 'required_without_all:kendaraan_berangkat_lrt,kendaraan_berangkat_mrt,kendaraan_berangkat_brt,kendaraan_berangkat_angkutan_kota,kendaraan_berangkat_ojol',
+            'kendaraan_berangkat_lrt' => 'required_without_all:kendaraan_berangkat_krl,kendaraan_berangkat_mrt,kendaraan_berangkat_brt,kendaraan_berangkat_angkutan_kota,kendaraan_berangkat_ojol',
+            'kendaraan_berangkat_mrt' => 'required_without_all:kendaraan_berangkat_krl,kendaraan_berangkat_lrt,kendaraan_berangkat_brt,kendaraan_berangkat_angkutan_kota,kendaraan_berangkat_ojol',
+            'kendaraan_berangkat_brt' => 'required_without_all:kendaraan_berangkat_krl,kendaraan_berangkat_lrt,kendaraan_berangkat_mrt,kendaraan_berangkat_angkutan_kota,kendaraan_berangkat_ojol',
+            'kendaraan_berangkat_angkutan_kota' => 'required_without_all:kendaraan_berangkat_krl,kendaraan_berangkat_lrt,kendaraan_berangkat_mrt,kendaraan_berangkat_brt,kendaraan_berangkat_ojol',
+            'kendaraan_berangkat_ojol' => 'required_without_all:kendaraan_berangkat_krl,kendaraan_berangkat_lrt,kendaraan_berangkat_mrt,kendaraan_berangkat_brt,kendaraan_berangkat_angkutan_kota',
+            'kendaraan_pulang_krl' => 'required_without_all:kendaraan_pulang_lrt,kendaraan_pulang_mrt,kendaraan_pulang_brt,kendaraan_pulang_angkutan_kota,kendaraan_pulang_ojol',
+            'kendaraan_pulang_lrt' => 'required_without_all:kendaraan_pulang_krl,kendaraan_pulang_mrt,kendaraan_pulang_brt,kendaraan_pulang_angkutan_kota,kendaraan_pulang_ojol',
+            'kendaraan_pulang_mrt' => 'required_without_all:kendaraan_pulang_krl,kendaraan_pulang_lrt,kendaraan_pulang_brt,kendaraan_pulang_angkutan_kota,kendaraan_pulang_ojol',
+            'kendaraan_pulang_brt' => 'required_without_all:kendaraan_pulang_krl,kendaraan_pulang_lrt,kendaraan_pulang_mrt,kendaraan_pulang_angkutan_kota,kendaraan_pulang_ojol',
+            'kendaraan_pulang_angkutan_kota' => 'required_without_all:kendaraan_pulang_krl,kendaraan_pulang_lrt,kendaraan_pulang_mrt,kendaraan_pulang_brt,kendaraan_pulang_ojol',
+            'kendaraan_pulang_ojol' => 'required_without_all:kendaraan_pulang_krl,kendaraan_pulang_lrt,kendaraan_pulang_mrt,kendaraan_pulang_brt,kendaraan_pulang_angkutan_kota',
             'tarif' => 'required|numeric',
-            'waktu_transfer' => 'required|numeric',
             'waktu_transit' => 'required|numeric',
+            'transport_henti_jalan_kaki' => 'required_without_all:transport_henti_ojol,transport_henti_angkutan_umum_lain,transport_henti_diantar,transport_henti_pribadi',
+            'transport_henti_ojol' => 'required_without_all:transport_henti_jalan_kaki,transport_henti_angkutan_umum_lain,transport_henti_diantar,transport_henti_pribadi',
+            'transport_henti_angkutan_umum_lain' => 'required_without_all:transport_henti_jalan_kaki,transport_henti_ojol,transport_henti_diantar,transport_henti_pribadi',
+            'transport_henti_diantar' => 'required_without_all:transport_henti_jalan_kaki,transport_henti_ojol,transport_henti_angkutan_umum_lain,transport_henti_pribadi',
+            'transport_henti_pribadi' => 'required_without_all:transport_henti_jalan_kaki,transport_henti_ojol,transport_henti_angkutan_umum_lain,transport_henti_diantar',
             'waktu_tunggu' => 'required|numeric',
             'waktu_perjalanan' => 'required|numeric',
+            'waktu_henti_tujuan' => 'required|numeric',
+            'transport_akhir_jalan_kaki' => 'required_without_all:transport_akhir_ojol,transport_akhir_angkutan_umum_lain,transport_akhir_diantar,transport_akhir_pribadi',
+            'transport_akhir_ojol' => 'required_without_all:transport_akhir_jalan_kaki,transport_akhir_angkutan_umum_lain,transport_akhir_diantar,transport_akhir_pribadi',
+            'transport_akhir_angkutan_umum_lain' => 'required_without_all:transport_akhir_jalan_kaki,transport_akhir_ojol,transport_akhir_diantar,transport_akhir_pribadi',
+            'transport_akhir_diantar' => 'required_without_all:transport_akhir_jalan_kaki,transport_akhir_ojol,transport_akhir_angkutan_umum_lain,transport_akhir_pribadi',
+            'transport_akhir_pribadi' => 'required_without_all:transport_akhir_jalan_kaki,transport_akhir_ojol,transport_akhir_angkutan_umum_lain,transport_akhir_diantar',
             'waktu_total' => 'required|numeric',
             'pendapatan' => 'required|numeric',
-            'preferensi_umum' => 'required|numeric'
+            'preferensi' => 'required|numeric'
         ]);
 
         $forms = $request->session()->get('form_data');

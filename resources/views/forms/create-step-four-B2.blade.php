@@ -3,11 +3,11 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-10">
-            <form action="{{ route('forms.create.step.four.b2.post') }}" method="POST">
+            <form action="{{ route('forms.create.step.four.b1.post') }}" method="POST">
                 @csrf
 
                 <div class="card">
-                    <div class="card-header">Data Public Transport</div>
+                    <div class="card-header">Data Private Transport</div>
 
                     <div class="card-body">
 
@@ -22,78 +22,31 @@
                             @endif
 
                             <div class="form-group">
-                                <label>Jenis Kendaraan Umum yang digunakan dalam sekali trip (boleh pilih lebih dari 1):</label>
-                                <div>
-                                    <input type="checkbox" id="krl" name="jenis_kendaraan_krl" value="1" {{ isset($forms) && $forms->jenis_kendaraan_krl ? 'checked' : '' }}>
-                                    <label for="krl">KRL</label>
-                                </div>
-                                <div>
-                                    <input type="checkbox" id="lrt" name="jenis_kendaraan_lrt" value="1" {{ isset($forms) && $forms->jenis_kendaraan_lrt ? 'checked' : '' }}>
-                                    <label for="lrt">LRT</label>
-                                </div>
-                                <div>
-                                    <input type="checkbox" id="mrt" name="jenis_kendaraan_mrt" value="1" {{ isset($forms) && $forms->jenis_kendaraan_mrt ? 'checked' : '' }}>
-                                    <label for="mrt">MRT</label>
-                                </div>
-                                <div>
-                                    <input type="checkbox" id="brt" name="jenis_kendaraan_brt" value="1" {{ isset($forms) && $forms->jenis_kendaraan_brt ? 'checked' : '' }}>
-                                    <label for="brt">BRT</label>
-                                </div>
-                                <div>
-                                    <input type="checkbox" id="angkutan_kota" name="jenis_kendaraan_angkutan_kota" value="1" {{ isset($forms) && $forms->jenis_kendaraan_angkutan_kota ? 'checked' : '' }}>
-                                    <label for="angkutan_kota">Angkutan Kota</label>
-                                </div>
-                                <div>
-                                    <input type="checkbox" id="ojol" name="jenis_kendaraan_ojol" value="1" {{ isset($forms) && $forms->jenis_kendaraan_ojol ? 'checked' : '' }}>
-                                    <label for="ojol">Ojol</label>
-                                </div>
-                            </div>
-
-
-                            <div class="form-group">
-                                <label for="title">Total Tarif / Biaya yang Harus Dibayar (Rp/hari, tanpa titik atau koma):</label>
-                                <input type="text" value="{{ $forms->tarif ?? '' }}" class="form-control" id="tarif"  name="tarif">
+                                <label for="description">Biaya Parkir (Rp/hari, tanpa titik atau koma):</label>
+                                <input type="text"  value="{{{ $forms->biaya_parkir ?? '' }}}" class="form-control" id="biaya_parkir" name="biaya_parkir"/>
                             </div>
                             <div class="form-group">
-                                <label for="description">Waktu Pindah Antar Angkutan Umum / Transfer (Menit):</label>
-                                <input type="text"  value="{{{ $forms->waktu_transfer ?? '' }}}" class="form-control" id="waktu_transfer" name="waktu_transfer"/>
+                                <label for="description">Biaya Bahan Bakar (Rp/bulan, tanpa titik atau koma):</label>
+                                <input type="text"  value="{{{ $forms->biaya_bbm ?? '' }}}" class="form-control" id="biaya_bbm" name="biaya_bbm"/>
                             </div>
                             <div class="form-group">
-                                <label for="description">Waktu Perjalanan Menuju Tempat Henti Angkutan Massal (Menit):</label>
-                                <input type="text"  value="{{{ $forms->waktu_transit ?? '' }}}" class="form-control" id="waktu_transit" name="waktu_transit"/>
-                            </div>
-                            <div class="form-group">
-                                <label for="description">Waktu Tunggu Kedatangan Angkutan Massal (Menit):</label>
-                                <input type="text"  value="{{{ $forms->waktu_tunggu ?? '' }}}" class="form-control" id="waktu_tunggu" name="waktu_tunggu"/>
-                            </div>
-                            <div class="form-group">
-                                <label for="description">Waktu Perjalanan di Atas Kendaraan Umum Massal (menit):</label>
-                                <input type="text"  value="{{{ $forms->waktu_perjalanan ?? '' }}}" class="form-control" id="waktu_perjalanan" name="waktu_perjalanan"/>
-                            </div>
-                            <div class="form-group">
-                                <label for="description">Waktu Total Perjalanan Menuju Tujuan Perjalanan (Menit):</label>
-                                <input type="text"  value="{{{ $forms->waktu_total ?? '' }}}" class="form-control" id="waktu_total" name="waktu_total"/>
-                            </div>
-                            <div class="form-group">
-                                <label for="description">Pendapatan (Rp/bulan, tanpa titik atau koma):</label>
-                                <input type="text"  value="{{{ $forms->waktu_total ?? '' }}}" class="form-control" id="pendapatan" name="pendapatan"/>
+                                <label for="description">Total Waktu Tempuh Perjalanan (Menit):</label>
+                                <input type="text"  value="{{{ $forms->perjalanan_total ?? '' }}}" class="form-control" id="perjalanan_total" name="perjalanan_total"/>
                             </div>
                             <div class="form-group">
                                 <label for="description">Preferensi / Keinginan Menggunakan Kendaraan Umum Dibanding Kendaraan Pribadi (%):</label>
-                                <input type="text"  value="{{{ $forms->preferensi_umum ?? '' }}}" class="form-control" id="preferensi_umum" name="preferensi_umum"/>
+                                <input type="text"  value="{{{ $forms->preferensi ?? '' }}}" class="form-control" id="preferensi" name="preferensi"/>
                                 <h6> Dari skala 0-100, tanpa tanda '%'</h6>
                             </div>
 
-                    </div>
-
-                    <div class="card-footer">
-                        <div class="row">
-                            <div class="col-md-6 text-left">
-                                <a href="{{ route('forms.create.step.four.b1') }}" class="btn btn-danger pull-right">Sebelumnya</a>
-                            </div>
-                            <div class="col-md-6 text-right">
-                                <button type="submit" class="btn btn-primary">Berikutnya</button>
-                            </div>
+                </div>
+                <div class="card-footer">
+                    <div class="row">
+                        <div class="col-md-6 text-left">
+                            <a href="{{ route('forms.create.step.four.b1') }}" class="btn btn-danger pull-right">Sebelumnya</a>
+                        </div>
+                        <div class="col-md-6 text-right">
+                            <button type="submit" class="btn btn-primary">Berikutnya</button>
                         </div>
                     </div>
                 </div>

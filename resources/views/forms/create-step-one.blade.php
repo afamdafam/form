@@ -20,7 +20,10 @@
                                     </ul>
                                 </div>
                             @endif
-
+                            <div class="form-group">
+                                <label for="description">No. Telepon:</label>
+                                <input type="number" min="0" value="{{{ $forms->telepon ?? '' }}}" class="form-control" id="telepon" name="telepon"/>
+                            </div>
                             <div class="form-group">
                                 <label for="title">Profesi:</label>
                                 <select class="form-control" id="profesi" name="profesi">
@@ -60,41 +63,25 @@
                                     <option value="Istri" {{ optional($forms)->kedudukan_keluarga === 'Istri' ? 'selected' : '' }}>Istri</option>
                                     <option value="Anak" {{ optional($forms)->kedudukan_keluarga === 'Anak' ? 'selected' : '' }}>Anak</option>
                                     <option value="Lajang" {{ optional($forms)->kedudukan_keluarga === 'Lajang' ? 'selected' : '' }}>Lajang / Single</option>
-                                    <!-- Add more options as needed -->
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label for="description">Maksud Perjalanan:</label>
-                                <select class="form-control" id="maksud_perjalanan" name="maksud_perjalanan">
-                                    <option value="">Pilih Maksud Perjalanan</option>
-                                    <option value="Bekerja" {{ old('maksud_perjalanan') === 'Bekerja' ? 'selected' : '' }}>Bekerja</option>
-                                    <option value="Sekolah / Kuliah" {{ old('maksud_perjalanan') === 'Sekolah / Kuliah' ? 'selected' : '' }}>Sekolah / Kuliah</option>
-                                    <option value="Belanja" {{ old('maksud_perjalanan') === 'Belanja' ? 'selected' : '' }}>Belanja</option>
-                                    <option value="Wisata" {{ old('maksud_perjalanan') === 'Wisata' ? 'selected' : '' }}>Wisata</option>
-                                    <option value="Lain-lain" {{ old('maksud_perjalanan') === 'Lain-lain' ? 'selected' : '' }}>Lain-lain</option>
-                                    <!-- Add more options as needed -->
-                                </select>
+                                <label for="description">Kepemilikan Kendaraan Pribadi</label><br/>
+                                <label class="radio-inline"><input type="radio" name="kendaraan_pribadi" id="kendaraan_0" value="0" {{{ (isset($forms->kendaraan_pribadi) && $forms->kendaraan_pribadi == '0') ? "checked" : "" }}}> Tidak Punya</label><br/>
+                                <label class="radio-inline"><input type="radio" name="kendaraan_pribadi" id="kendaraan_1" value="1" {{{ (isset($forms->kendaraan_pribadi) && $forms->kendaraan_pribadi == '1') ? "checked" : "" }}}> Punya</label>
                             </div>
-                            <div class="form-group" id="lainlain_field" style="display: none;">
-                                <label for="lainlain">Tuliskan Maksud Perjalanan:</label>
-                                <input type="text" class="form-control" id="lainlain" name="tulis_maksud" value="{{ old('tulis_maksud', optional($forms)->tulis_maksud) }}">
+                            <div class="form-group" id="jumlah_kepemilikan" style="display:none">
+                                <div class="row">
+                                    <div class="col-6">
+                                        <label for="desription">Motor (Unit):</label>
+                                        <input  type="number" min="0" value="{{ $forms->deskripsi_kendaraan_motor ?? '' }}" class="form-control" id="deskripsi_kendaraan_motor"  name="deskripsi_kendaraan_motor">
+                                    </div>
+                                    <div class="col-6">
+                                        <label for="desription">Mobil (Unit):</label>
+                                        <input  type="number" min="0" value="{{ $forms->deskripsi_kendaraan_mobil ?? '' }}" class="form-control" id="deskripsi_kendaraan_mobil"  name="deskripsi_kendaraan_mobil">
+                                    </div>
+                                </div>
                             </div>
-                            <div class="form-group">
-                                <label for="description">Perjalanan Berangkat atau Pulang:</label><br/>
-                                <label class="radio-inline"><input type="radio" name="berangkat_pulang" value="Berangkat" {{{ (isset($forms->berangakat_pulang) && $forms->berangakat_pulang == 'Berangkat') ? "checked" : "" }}}> Berangkat</label><br/>
-                                <label class="radio-inline"><input type="radio" name="berangkat_pulang" value="Pulang" {{{ (isset($forms->berangakat_pulang) && $forms->berangakat_pulang == 'Pulang') ? "checked" : "" }}}> Pulang</label><br>
-                                <label class="radio-inline"><input type="radio" name="berangkat_pulang" value="Berangkat dan Pulang" {{{ (isset($forms->berangakat_pulang) && $forms->berangakat_pulang == 'Berangkat dan Pulang') ? "checked" : "" }}}> Berangkat dan Pulang</label>
-                            </div>
-                            <div class="form-group">
-                                <label for="description">Frekuensi Perjalanan (Kali/Minggu):</label>
-                                <input type="number" min="0" value="{{{ $forms->frekuensi_perjalanan ?? '' }}}" class="form-control" id="frekuensi_perjalanan" name="frekuensi_perjalanan"/>
-                            </div>
-                            <div class="form-group">
-                                <label for="description">Kendaraan Pribadi</label><br/>
-                                <label class="radio-inline"><input type="radio" name="kendaraan_pribadi" value="1" {{{ (isset($forms->kendaraan_pribadi) && $forms->kendaraan_pribadi == '1') ? "checked" : "" }}}> Punya</label><br/>
-                                <label class="radio-inline"><input type="radio" name="kendaraan_pribadi" value="0" {{{ (isset($forms->kendaraan_pribadi) && $forms->kendaraan_pribadi == '0') ? "checked" : "" }}}> Tidak</label>
-                            </div>
-
                     </div>
 
                     <div class="card-footer text-right">
@@ -115,14 +102,12 @@
             }
         });
 
-        document.getElementById('maksud_perjalanan').addEventListener('change', function () {
-            var profesiLainlain = document.getElementById('lainlain_field');
-            if (this.value === 'Lain-lain') {
-                profesiLainlain.style.display = 'block';
-            } else {
-                profesiLainlain.style.display = 'none';
-            }
-        });
+        document.getElementById('kendaraan_0').addEventListener('click', function () {
+            document.getElementById('jumlah_kepemilikan').style.display = 'none';
+        })
+        document.getElementById('kendaraan_1').addEventListener('click', function () {
+            document.getElementById('jumlah_kepemilikan').style.display = 'block';
+        })
     </script>
 </div>
 @endsection
