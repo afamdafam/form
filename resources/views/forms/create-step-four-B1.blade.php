@@ -3,7 +3,7 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-10">
-            <form action="{{ route('forms.create.step.four.b2.post') }}" method="POST">
+            <form action="{{ route('forms.create.step.four.b1.post') }}" method="POST">
                 @csrf
 
                 <div class="card">
