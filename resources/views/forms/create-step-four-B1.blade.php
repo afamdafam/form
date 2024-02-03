@@ -140,7 +140,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="description">Waktu Perjalanan dari Tempat Henti Akhir ke Tujuan (menit):</label>
-                                <input type="text"  value="{{{ $forms->waktu_henti_tujuan ?? '' }}}" class="form-control" id="waktu_henti_tujuan" name="waktu_perjalanan"/>
+                                <input type="text"  value="{{{ $forms->waktu_henti_tujuan ?? '' }}}" class="form-control" id="waktu_henti_tujuan" name="waktu_henti_tujuan"/>
                             </div>
                             <div class="form-group">
                                 <label>Moda Transportasi dari Tempat Henti Akhir ke Tujuan (boleh pilih lebih dari 1):</label>
