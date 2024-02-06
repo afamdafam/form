@@ -7,7 +7,7 @@
                 @csrf
 
                 <div class="card">
-                    <div class="card-header">Data Public Transport</div>
+                    <div class="card-header">Data Kendaraan Umum</div>
 
                     <div class="card-body">
 
@@ -151,8 +151,8 @@
                                     <label>Angkutan Umum Lainnya</label>
                                 </div>
                                 <div>
-                                    <input type="checkbox" name="transport_akhir_diantar" value="1" {{ isset($forms) && $forms->transport_akhir_diantar ? 'checked' : '' }}>
-                                    <label>Diantar</label>
+                                    <input type="checkbox" name="transport_akhir_dijemput" value="1" {{ isset($forms) && $forms->transport_akhir_dijemput ? 'checked' : '' }}>
+                                    <label>Dijemput</label>
                                 </div>
                                 <div>
                                     <input type="checkbox" name="transport_akhir_pribadi" value="1" {{ isset($forms) && $forms->transport_akhir_pribadi ? 'checked' : '' }}>

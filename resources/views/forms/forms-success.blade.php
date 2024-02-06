@@ -10,6 +10,9 @@
                 </div>
                 <div class="card-body ">
                   <h5 class="card-title text-center">Form Telah Berhasil Diisi !</h5>
+                  <p class="card-text text-center">
+                    Diizinkan untuk mengisi kembali jika ada anggota keluarga lain.
+                  </p>
                   <a href="{{ route('forms.index') }}" class="btn btn-primary pull-right">Lanjutkan</a>
 
                     @if (Session::has('message'))

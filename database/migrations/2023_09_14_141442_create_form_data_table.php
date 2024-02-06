@@ -68,7 +68,7 @@ return new class extends Migration
             $table->boolean('transport_akhir_jalan_kaki')->default(0);
             $table->boolean('transport_akhir_ojol')->default(0);
             $table->boolean('transport_akhir_angkutan_umum_lain')->default(0);
-            $table->boolean('transport_akhir_diantar')->default(0);
+            $table->boolean('transport_akhir_dijemput')->default(0);
             $table->boolean('transport_akhir_pribadi')->default(0);
             $table->integer('waktu_total')->nullable();
             $table->integer('pendapatan')->nullable();

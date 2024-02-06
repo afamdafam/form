@@ -7,7 +7,7 @@
                 @csrf
 
                 <div class="card">
-                    <div class="card-header">Data Private Transport</div>
+                    <div class="card-header">Data Kendaraan Pribadi</div>
 
                     <div class="card-body">
 

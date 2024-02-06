@@ -25,7 +25,7 @@ class FormData extends Model
         'transport_henti_angkutan_umum_lain', 'transport_henti_diantar', 'transport_henti_pribadi',
         'waktu_tunggu', 'waktu_perjalanan', 'waktu_henti_tujuan',
         'transport_akhir_jalan_kaki', 'transport_akhir_ojol',
-        'transport_akhir_angkutan_umum_lain', 'transport_akhir_diantar', 'transport_akhir_pribadi',
+        'transport_akhir_angkutan_umum_lain', 'transport_akhir_dijemput', 'transport_akhir_pribadi',
         'waktu_total', 'pendapatan', 'biaya_parkir', 'biaya_bbm', 'perjalanan_total',
         'preferensi',
     ];

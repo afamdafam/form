@@ -23,15 +23,12 @@ class FormController extends Controller
     public function postCreateStepOne(Request $request)
     {
         $validatedData = $request->validate([
-            'telepon' => 'numeric',
             'profesi' => 'required',
             'jenis_kelamin' => 'required',
             'umur' => 'required|numeric',
             'ukuran_keluarga' => 'required|numeric',
             'kedudukan_keluarga' => 'required',
             'kendaraan_pribadi' => 'required',
-            'deskripsi_kendaraan_motor' => 'numeric',
-            'deskripsi_kendaraan_mobil' => 'numeric',
         ]);
 
         if(empty($request->session()->get('form_data'))){
@@ -196,11 +193,11 @@ class FormController extends Controller
             'waktu_tunggu' => 'required|numeric',
             'waktu_perjalanan' => 'required|numeric',
             'waktu_henti_tujuan' => 'required|numeric',
-            'transport_akhir_jalan_kaki' => 'required_without_all:transport_akhir_ojol,transport_akhir_angkutan_umum_lain,transport_akhir_diantar,transport_akhir_pribadi',
-            'transport_akhir_ojol' => 'required_without_all:transport_akhir_jalan_kaki,transport_akhir_angkutan_umum_lain,transport_akhir_diantar,transport_akhir_pribadi',
-            'transport_akhir_angkutan_umum_lain' => 'required_without_all:transport_akhir_jalan_kaki,transport_akhir_ojol,transport_akhir_diantar,transport_akhir_pribadi',
-            'transport_akhir_diantar' => 'required_without_all:transport_akhir_jalan_kaki,transport_akhir_ojol,transport_akhir_angkutan_umum_lain,transport_akhir_pribadi',
-            'transport_akhir_pribadi' => 'required_without_all:transport_akhir_jalan_kaki,transport_akhir_ojol,transport_akhir_angkutan_umum_lain,transport_akhir_diantar',
+            'transport_akhir_jalan_kaki' => 'required_without_all:transport_akhir_ojol,transport_akhir_angkutan_umum_lain,transport_akhir_dijemput,transport_akhir_pribadi',
+            'transport_akhir_ojol' => 'required_without_all:transport_akhir_jalan_kaki,transport_akhir_angkutan_umum_lain,transport_akhir_dijemput,transport_akhir_pribadi',
+            'transport_akhir_angkutan_umum_lain' => 'required_without_all:transport_akhir_jalan_kaki,transport_akhir_ojol,transport_akhir_dijemput,transport_akhir_pribadi',
+            'transport_akhir_dijemput' => 'required_without_all:transport_akhir_jalan_kaki,transport_akhir_ojol,transport_akhir_angkutan_umum_lain,transport_akhir_pribadi',
+            'transport_akhir_pribadi' => 'required_without_all:transport_akhir_jalan_kaki,transport_akhir_ojol,transport_akhir_angkutan_umum_lain,transport_akhir_dijemput',
             'waktu_total' => 'required|numeric',
             'pendapatan' => 'required|numeric',
         ]);
@@ -276,11 +273,11 @@ class FormController extends Controller
             'waktu_tunggu' => 'required|numeric',
             'waktu_perjalanan' => 'required|numeric',
             'waktu_henti_tujuan' => 'required|numeric',
-            'transport_akhir_jalan_kaki' => 'required_without_all:transport_akhir_ojol,transport_akhir_angkutan_umum_lain,transport_akhir_diantar,transport_akhir_pribadi',
-            'transport_akhir_ojol' => 'required_without_all:transport_akhir_jalan_kaki,transport_akhir_angkutan_umum_lain,transport_akhir_diantar,transport_akhir_pribadi',
-            'transport_akhir_angkutan_umum_lain' => 'required_without_all:transport_akhir_jalan_kaki,transport_akhir_ojol,transport_akhir_diantar,transport_akhir_pribadi',
-            'transport_akhir_diantar' => 'required_without_all:transport_akhir_jalan_kaki,transport_akhir_ojol,transport_akhir_angkutan_umum_lain,transport_akhir_pribadi',
-            'transport_akhir_pribadi' => 'required_without_all:transport_akhir_jalan_kaki,transport_akhir_ojol,transport_akhir_angkutan_umum_lain,transport_akhir_diantar',
+            'transport_akhir_jalan_kaki' => 'required_without_all:transport_akhir_ojol,transport_akhir_angkutan_umum_lain,transport_akhir_dijemput,transport_akhir_pribadi',
+            'transport_akhir_ojol' => 'required_without_all:transport_akhir_jalan_kaki,transport_akhir_angkutan_umum_lain,transport_akhir_dijemput,transport_akhir_pribadi',
+            'transport_akhir_angkutan_umum_lain' => 'required_without_all:transport_akhir_jalan_kaki,transport_akhir_ojol,transport_akhir_dijemput,transport_akhir_pribadi',
+            'transport_akhir_dijemput' => 'required_without_all:transport_akhir_jalan_kaki,transport_akhir_ojol,transport_akhir_angkutan_umum_lain,transport_akhir_pribadi',
+            'transport_akhir_pribadi' => 'required_without_all:transport_akhir_jalan_kaki,transport_akhir_ojol,transport_akhir_angkutan_umum_lain,transport_akhir_dijemput',
             'waktu_total' => 'required|numeric',
             'pendapatan' => 'required|numeric',
             'preferensi' => 'required|numeric'

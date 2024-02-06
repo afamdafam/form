@@ -21,7 +21,7 @@
         }
     </style>
 </head>
-<body style="background-color: #f3fdf3">
+<body style="background-color: rgba(0, 0, 0, 0.65);">
 
 <div class="container" style="margin-top: 5vh;">
 

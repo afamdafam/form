@@ -23,6 +23,7 @@
                             <div class="form-group">
                                 <label for="description">No. Telepon:</label>
                                 <input type="number" min="0" value="{{{ $forms->telepon ?? '' }}}" class="form-control" id="telepon" name="telepon"/>
+                                <h6>Data nomor telepon akan digunakan untuk pembagian reward</h6>
                             </div>
                             <div class="form-group">
                                 <label for="title">Profesi:</label>

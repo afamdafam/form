@@ -44,6 +44,8 @@
                                 <div class="form-group">
                                     <label for="kelurahan">Kota</label>
                                     <input type="text" class="form-control" value="{{ $forms->alamat_kota?? ''}}" placeholder="-" name="alamat_kota" id="kota" readonly>
+                                    <br>
+                                    <p>Isilah data dengan menetapkan titik/point pada peta di bawah.</p>
                                 </div>
 
                                 <div id="map" style="height:400px; width: 400px;" class="my-6"></div>
