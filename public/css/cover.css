@@ -29,8 +29,10 @@ body {
   height: 100%;
   margin: 0;
   padding: 0;
-  background: url('../img/BG.png') center/cover no-repeat;
+  position: relative;
+  background: url('../img/BG.png') center/cover no-repeat fixed;
   background-position: center;
+  overflow: hidden;
 }
 
 body::before {
