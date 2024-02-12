@@ -38,6 +38,7 @@
                             <div class="form-group">
                                 <label for="description">Frekuensi Perjalanan (Kali/Minggu):</label>
                                 <input type="number" min="0" value="{{{ $forms->frekuensi_perjalanan ?? '' }}}" class="form-control" id="frekuensi_perjalanan" name="frekuensi_perjalanan"/>
+                                <h6>Cukup tulis angka saja, tanpa titik, koma, atau satuan</h6>
                             </div>
                             <div class="form-group">
                                 <label>Jenis Kendaraan Umum yang digunakan ketika berangkat (boleh pilih lebih dari 1):</label>
@@ -96,10 +97,12 @@
                             <div class="form-group">
                                 <label for="title">Total Tarif / Biaya yang Harus Dibayar Untuk Angkutan Umum (Rp/hari, tanpa titik atau koma):</label>
                                 <input type="text" value="{{ $forms->tarif ?? '' }}" class="form-control" id="tarif"  name="tarif">
+                                <h6>Cukup tulis angka saja, tanpa titik, koma, atau satuan</h6>
                             </div>
                             <div class="form-group">
                                 <label for="description">Waktu Perjalanan Menuju Tempat Henti Angkutan Massal (Menit):</label>
                                 <input type="text"  value="{{{ $forms->waktu_transit ?? '' }}}" class="form-control" id="waktu_transit" name="waktu_transit"/>
+                                <h6>Cukup tulis angka saja, tanpa titik, koma, atau satuan</h6>
                             </div>
                             <div class="form-group">
                                 <label>Moda Transportasi Menuju Tempat Henti Angkutan Massal (boleh pilih lebih dari 1):</label>
@@ -127,14 +130,17 @@
                             <div class="form-group">
                                 <label for="description">Waktu Tunggu Kedatangan Angkutan Massal (Menit):</label>
                                 <input type="text"  value="{{{ $forms->waktu_tunggu ?? '' }}}" class="form-control" id="waktu_tunggu" name="waktu_tunggu"/>
+                                <h6>Cukup tulis angka saja, tanpa titik, koma, atau satuan</h6>
                             </div>
                             <div class="form-group">
                                 <label for="description">Waktu Perjalanan di Atas Kendaraan Umum Massal (Menit):</label>
                                 <input type="text"  value="{{{ $forms->waktu_perjalanan ?? '' }}}" class="form-control" id="waktu_perjalanan" name="waktu_perjalanan"/>
+                                <h6>Cukup tulis angka saja, tanpa titik, koma, atau satuan</h6>
                             </div>
                             <div class="form-group">
                                 <label for="description">Waktu Perjalanan dari Tempat Henti Akhir ke Tujuan(menit):</label>
                                 <input type="text"  value="{{{ $forms->waktu_henti_tujuan ?? '' }}}" class="form-control" id="waktu_henti_tujuan" name="waktu_henti_tujuan"/>
+                                <h6>Cukup tulis angka saja, tanpa titik, koma, atau satuan</h6>
                             </div>
                             <div class="form-group">
                                 <label>Moda Transportasi dari Tempat Henti Akhir ke Tujuan (boleh pilih lebih dari 1):</label>
@@ -162,10 +168,12 @@
                             <div class="form-group">
                                 <label for="description">Waktu Total Perjalanan Menuju Tujuan Perjalanan (Menit):</label>
                                 <input type="text"  value="{{{ $forms->waktu_total ?? '' }}}" class="form-control" id="waktu_total" name="waktu_total"/>
+                                <h6>Cukup tulis angka saja, tanpa titik, koma, atau satuan</h6>
                             </div>
                             <div class="form-group">
-                                <label for="description">Pendapatan (Rp/bulan, tanpa titik atau koma):</label>
+                                <label for="description">Pendapatan (Rp/bulan):</label>
                                 <input type="text"  value="{{{ $forms->waktu_total ?? '' }}}" class="form-control" id="pendapatan" name="pendapatan"/>
+                                <h6>Cukup tulis angka saja, tanpa titik, koma, atau satuan</h6>
                             </div>
                             <div class="form-group">
                                 <label for="description">Preferensi / Keinginan Menggunakan Kendaraan Umum Dibanding Kendaraan Pribadi (%):</label>

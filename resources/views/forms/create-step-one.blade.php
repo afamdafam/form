@@ -51,10 +51,12 @@
                             <div class="form-group">
                                 <label for="description">Umur (Tahun):</label>
                                 <input type="number" min="0" value="{{{ $forms->umur ?? '' }}}" class="form-control" id="umur" name="umur"/>
+                                <h6>Cukup tulis angka saja, tanpa titik, koma, atau satuan</h6>
                             </div>
                             <div class="form-group">
-                                <label for="description">Ukuran Keluarga (Orang):</label>
+                                <label for="description">Jumlah Anggota Keluarga (Orang):</label>
                                 <input type="number" min="0" value="{{{ $forms->ukuran_keluarga ?? '' }}}" class="form-control" id="ukuran_keluarga" name="ukuran_keluarga"/>
+                                <h6>Cukup tulis angka saja, tanpa titik, koma, atau satuan</h6>
                             </div>
                             <div class="form-group">
                                 <label for="description">Kedudukan Keluarga:</label>
@@ -76,10 +78,12 @@
                                     <div class="col-6">
                                         <label for="desription">Motor (Unit):</label>
                                         <input  type="number" min="0" value="{{ $forms->deskripsi_kendaraan_motor ?? '' }}" class="form-control" id="deskripsi_kendaraan_motor"  name="deskripsi_kendaraan_motor">
+                                        <h6>Cukup tulis angka saja, tanpa titik, koma, atau satuan</h6>
                                     </div>
                                     <div class="col-6">
                                         <label for="desription">Mobil (Unit):</label>
                                         <input  type="number" min="0" value="{{ $forms->deskripsi_kendaraan_mobil ?? '' }}" class="form-control" id="deskripsi_kendaraan_mobil"  name="deskripsi_kendaraan_mobil">
+                                        <h6>Cukup tulis angka saja, tanpa titik, koma, atau satuan</h6>
                                     </div>
                                 </div>
                             </div>

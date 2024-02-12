@@ -22,16 +22,19 @@
                             @endif
 
                             <div class="form-group">
-                                <label for="description">Biaya Parkir (Rp/hari, tanpa titik atau koma):</label>
+                                <label for="description">Biaya Parkir (Rp/hari):</label>
                                 <input type="text"  value="{{{ $forms->biaya_parkir ?? '' }}}" class="form-control" id="biaya_parkir" name="biaya_parkir"/>
+                                <h6>Cukup tulis angka saja, tanpa titik, koma, atau satuan</h6>
                             </div>
                             <div class="form-group">
-                                <label for="description">Biaya Bahan Bakar (Rp/bulan, tanpa titik atau koma):</label>
+                                <label for="description">Biaya Bahan Bakar (Rp/bulan):</label>
                                 <input type="text"  value="{{{ $forms->biaya_bbm ?? '' }}}" class="form-control" id="biaya_bbm" name="biaya_bbm"/>
+                                <h6>Cukup tulis angka saja, tanpa titik, koma, atau satuan</h6>
                             </div>
                             <div class="form-group">
                                 <label for="description">Total Waktu Tempuh Perjalanan (Menit):</label>
                                 <input type="text"  value="{{{ $forms->perjalanan_total ?? '' }}}" class="form-control" id="perjalanan_total" name="perjalanan_total"/>
+                                <h6>Cukup tulis angka saja, tanpa titik, koma, atau satuan</h6>
                             </div>
                             <div class="form-group">
                                 <label for="description">Preferensi / Keinginan Menggunakan Kendaraan Umum Dibanding Kendaraan Pribadi (%):</label>
