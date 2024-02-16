@@ -5,19 +5,19 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\FormData;
 
-class FormController extends Controller
+class JabodetabekFormController extends Controller
 {
     public function index()
     {
         $forms = FormData::all();
-        return view('forms.index',compact('forms'));
+        return view('forms.jabodetabek.index',compact('forms'));
     }
 
     public function createStepOne(Request $request)
     {
         $forms = $request->session()->get('form_data');
 
-        return view('forms.create-step-one',compact('forms'));
+        return view('forms.jabodetabek.create-step-one',compact('forms'));
     }
 
     public function postCreateStepOne(Request $request)
@@ -41,7 +41,7 @@ class FormController extends Controller
             $request->session()->put('form_data', $forms);
         }
 
-        return redirect()->route('forms.create.step.two.1');
+        return redirect()->route('forms.jabodetabek.create.step.two.1');
     }
 
     public function createStepTwo1(Request $request)
@@ -49,7 +49,7 @@ class FormController extends Controller
         $forms = $request->session()->get('form_data');
 
 
-        return view('forms.create-step-two-1',compact('forms'));
+        return view('forms.jabodetabek.create-step-two-1',compact('forms'));
     }
 
     public function postCreateStepTwo1(Request $request)
@@ -66,7 +66,7 @@ class FormController extends Controller
         $forms->fill($validatedData);
         $request->session()->put('form_data', $forms);
 
-        return redirect()->route('forms.create.step.two.2');
+        return redirect()->route('forms.jabodetabek.create.step.two.2');
     }
 
     public function createStepTwo2(Request $request)
@@ -74,7 +74,7 @@ class FormController extends Controller
         $forms = $request->session()->get('form_data');
 
 
-        return view('forms.create-step-two-2',compact('forms'));
+        return view('forms.jabodetabek.create-step-two-2',compact('forms'));
     }
 
     public function postCreateStepTwo2(Request $request)
@@ -91,14 +91,14 @@ class FormController extends Controller
         $forms->fill($validatedData);
         $request->session()->put('form_data', $forms);
 
-        return redirect()->route('forms.create.step.three');
+        return redirect()->route('forms.jabodetabek.create.step.three');
     }
 
     public function createStepThree(Request $request)
     {
         $forms = $request->session()->get('form_data');
 
-        return view('forms.create-step-three',compact('forms'));
+        return view('forms.jabodetabek.create-step-three',compact('forms'));
     }
 
     public function postCreateStepThree(Request $request)
@@ -112,11 +112,11 @@ class FormController extends Controller
         $request->session()->put('form_data', $forms);
 
         if ($forms->option && $forms->kendaraan_pribadi) {
-            return redirect()->route('forms.create.step.four.a');
+            return redirect()->route('forms.jabodetabek.create.step.four.a');
         } else if (!$forms->option && $forms->kendaraan_pribadi){
-            return redirect()->route('forms.create.step.four.b1');
+            return redirect()->route('forms.jabodetabek.create.step.four.b1');
         } else {
-            return redirect()->route('forms.create.step.four.c');
+            return redirect()->route('forms.jabodetabek.create.step.four.c');
         }
     }
 
@@ -125,7 +125,7 @@ class FormController extends Controller
         $forms = $request->session()->get('form_data');
 
 
-        return view('forms.create-step-four-A',compact('forms'));
+        return view('forms.jabodetabek.create-step-four-A',compact('forms'));
     }
 
     public function postCreateStepFourA(Request $request)
@@ -154,7 +154,7 @@ class FormController extends Controller
 
         $request->session()->forget('form_data');
 
-        return redirect()->route('forms.success');
+        return redirect()->route('forms.jabodetabek.success');
 
     }
 
@@ -163,7 +163,7 @@ class FormController extends Controller
         $forms = $request->session()->get('form_data');
 
 
-        return view('forms.create-step-four-B1',compact('forms'));
+        return view('forms.jabodetabek.create-step-four-B1',compact('forms'));
     }
 
     public function postCreateStepFourB1(Request $request)
@@ -206,7 +206,7 @@ class FormController extends Controller
         $forms->fill($validatedData);
         $request->session()->put('form_data', $forms);
 
-        return redirect()->route('forms.create.step.four.b2');
+        return redirect()->route('forms.jabodetabek.create.step.four.b2');
 
     }
 
@@ -215,7 +215,7 @@ class FormController extends Controller
         $forms = $request->session()->get('form_data');
 
 
-        return view('forms.create-step-four-B2',compact('forms'));
+        return view('forms.jabodetabek.create-step-four-B2',compact('forms'));
     }
 
     public function postCreateStepFourB2(Request $request)
@@ -235,7 +235,7 @@ class FormController extends Controller
 
         $request->session()->forget('form_data');
 
-        return redirect()->route('forms.success');
+        return redirect()->route('forms.jabodetabek.success');
     }
 
     public function createStepFourC(Request $request)
@@ -243,7 +243,7 @@ class FormController extends Controller
         $forms = $request->session()->get('form_data');
 
 
-        return view('forms.create-step-four-C',compact('forms'));
+        return view('forms.jabodetabek.create-step-four-C',compact('forms'));
     }
 
     public function postCreateStepFourC(Request $request)
@@ -291,11 +291,11 @@ class FormController extends Controller
 
         $request->session()->forget('form_data');
 
-        return redirect()->route('forms.success');
+        return redirect()->route('forms.jabodetabek.success');
     }
     public function formSuccess(Request $request){
 
-        return view('forms.forms-success');
+        return view('forms.jabodetabek.forms-success');
     }
     public function postForm(Request $request)
     {
@@ -304,6 +304,6 @@ class FormController extends Controller
 
         $request->session()->forget('form_data');
 
-        return redirect()->route('forms.index');
+        return redirect()->route('forms.jabodetabek.index');
     }
 }

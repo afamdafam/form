@@ -22,9 +22,9 @@
       <main role="main" class="inner cover">
         <h1 class="cover-heading">Survei Keefektifan Angkutan Umum Massal</h1>
         <p class="card-text text-justify">Di Indonesia, pelayanan angkutan umum belum menjadi pilihan yang menarik bagi pelaku perjalanan. Survei ini dilakukan untuk mengulas keefektifan pelayanan angkutan umum massal. Hasil dari survei ini diharapkan dapat memberi gambaran lebih mendalam berkaitan dengan keefektifan pelayanan angkutan umum massal yang harus diukur secara terperinci sehingga memberi manfaat kepada masyarakat dan dapat memberi arah pengembangan angkutan umum dimasa mendatang.
-                    Sebagai langkah awal survei, cakupan wilayah yang akan diamati adalah JABODETABEK.</p>
+                    Sebagai langkah awal survei, cakupan wilayah yang akan diamati adalah JATENG-DIY.</p>
         <p><b>Akan ada reward secara acak bagi responden yang mengisi. Terima kasih atas partisipasinya.</b></p>
-          <a href="{{ route('forms.create.step.one') }}" class="btn btn-lg btn-secondary">Isi Form</a>
+          <a href="{{ route('forms.jateng-diy.create.step.one') }}" class="btn btn-lg btn-secondary">Isi Form</a>
         </p>
       </main>
 

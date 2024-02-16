@@ -3,11 +3,11 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-10">
-            <form action="{{ route('forms.create.step.two.post.1') }}" method="POST">
+            <form action="{{ route('forms.jateng-diy.create.step.two.post.2') }}" method="POST">
                 @csrf
 
                 <div class="card">
-                    <div class="card-header">Data Alamat Asal / Awal Perjalanan</div>
+                    <div class="card-header">Data Alamat Tujuan</div>
 
                     <div class="card-body">
 
@@ -24,42 +24,41 @@
                                 <div class="row">
                                     <div class="col-6">
                                         <label for="">Latitude</label>
-                                        <input type="text" class="form-control" value="{{ $forms->alamat_latitude ?? ''}}" placeholder="0" name="alamat_latitude" id="lat" readonly>
+                                        <input type="text" class="form-control" value="{{ $forms->tujuan_latitude ?? ''}}" placeholder="0" name="tujuan_latitude" id="lat" readonly>
                                     </div>
                                     <div class="col-6">
                                         <label for="Longitude">Longitude</label>
-                                        <input type="text" class="form-control" value="{{ $forms->alamat_longitude ?? ''}}" placeholder="0" name="alamat_longitude" id="lng" readonly>
+                                        <input type="text" class="form-control" value="{{ $forms->tujuan_longitude ?? ''}}" placeholder="0" name="tujuan_longitude" id="lng" readonly>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-6">
                                         <label for="">Kecamatan</label>
-                                        <input type="text" class="form-control" value="{{ $forms->alamat_kecamatan?? ''}}" placeholder="-" name="alamat_kecamatan" id="kecamatan" readonly>
+                                        <input type="text" class="form-control" value="{{ $forms->tujuan_kecamatan?? ''}}" placeholder="-" name="tujuan_kecamatan" id="kecamatan" readonly>
                                     </div>
                                     <div class="col-6">
                                         <label for="kelurahan">Kelurahan</label>
-                                        <input type="text" class="form-control" value="{{ $forms->alamat_kelurahan?? ''}}" placeholder="-" name="alamat_kelurahan" id="kelurahan" readonly>
+                                        <input type="text" class="form-control" value="{{ $forms->tujuan_kelurahan?? ''}}" placeholder="-" name="tujuan_kelurahan" id="kelurahan" readonly>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="kelurahan">Kota</label>
-                                    <input type="text" class="form-control" value="{{ $forms->alamat_kota?? ''}}" placeholder="-" name="alamat_kota" id="kota" readonly>
+                                    <input type="text" class="form-control" value="{{ $forms->tujuan_kota?? ''}}" placeholder="-" name="tujuan_kota" id="kota" readonly>
                                     <br>
                                     <p>Isilah data dengan menetapkan titik/point pada peta di bawah.</p>
                                 </div>
-
                                 <div id="map" style="height:400px; width: 400px;" class="my-6"></div>
 
                                 <script>
                                     let map;
                                     function initMap() {
                                         map = new google.maps.Map(document.getElementById("map"), {
-                                            center: { lat: -6.208347, lng: 106.848165 },
+                                            center: { lat: -6.9641095, lng: 108.804114 },
                                             zoom: 8,
                                             scrollwheel: true,
                                         });
 
-                                        const uluru = { lat: -6.208347, lng: 106.848165 };
+                                        const uluru = { lat: -6.9641095, lng: 108.804114 };
                                         let marker = new google.maps.Marker({
                                             position: uluru,
                                             map: map,
@@ -107,7 +106,7 @@
                                     }
                                 </script>
                                 <script async defer src="https://maps.googleapis.com/maps/api/js?key={{ config('services.google_maps.api_key') }}&callback=initMap"
-                                        type="text/javascript"></script>
+                                type="text/javascript"></script>
                             </div>
 
                     </div>
@@ -115,7 +114,7 @@
                     <div class="card-footer">
                         <div class="row">
                             <div class="col-md-6 text-left">
-                                <a href="{{ route('forms.create.step.one') }}" class="btn btn-danger pull-right">Sebelumnya</a>
+                                <a href="{{ route('forms.jateng-diy.create.step.two.1') }}" class="btn btn-danger pull-right">Sebelumnya</a>
                             </div>
                             <div class="col-md-6 text-right">
                                 <button type="submit" class="btn btn-primary">Berikutnya</button>

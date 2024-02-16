@@ -13,7 +13,7 @@
                   <p class="card-text text-center">
                     Diizinkan untuk mengisi kembali jika ada anggota keluarga lain.
                   </p>
-                  <a href="{{ route('forms.index') }}" class="btn btn-primary pull-right">Lanjutkan</a>
+                  <a href="{{ route('forms.jateng-diy.index') }}" class="btn btn-primary pull-right">Lanjutkan</a>
 
                     @if (Session::has('message'))
                         <div class="alert alert-info">{{ Session::get('message') }}</div>

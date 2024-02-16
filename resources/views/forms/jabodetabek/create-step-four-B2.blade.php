@@ -3,7 +3,7 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-10">
-            <form action="{{ route('forms.create.step.four.b2.post') }}" method="POST">
+            <form action="{{ route('forms.jabodetabek.create.step.four.b2.post') }}" method="POST">
                 @csrf
 
                 <div class="card">
@@ -46,7 +46,7 @@
                 <div class="card-footer">
                     <div class="row">
                         <div class="col-md-6 text-left">
-                            <a href="{{ route('forms.create.step.four.b1') }}" class="btn btn-danger pull-right">Sebelumnya</a>
+                            <a href="{{ route('forms.jabodetabek.create.step.four.b1') }}" class="btn btn-danger pull-right">Sebelumnya</a>
                         </div>
                         <div class="col-md-6 text-right">
                             <button type="submit" class="btn btn-primary">Berikutnya</button>

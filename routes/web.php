@@ -2,7 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
-use App\Http\Controllers\FormController;
+use App\Http\Controllers\JabodetabekFormController;
+use App\Http\Controllers\JatengDIYFormController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,39 +16,76 @@ use App\Http\Controllers\FormController;
 |
 */
 
-Route::get('/', [FormController::class,'index'])->name('forms.index');
+Route::get('jabodetabek/', [JabodetabekFormController::class,'index'])->name('forms.jabodetabek.index');
 
-Route::get('/create-step-one', [FormController::class,'createStepOne'])->name('forms.create.step.one');
+Route::get('jabodetabek/create-step-one', [JabodetabekFormController::class,'createStepOne'])->name('forms.jabodetabek.create.step.one');
 
-Route::post('/create-step-one', [FormController::class,'postCreateStepOne'])->name('forms.create.step.one.post');
+Route::post('jabodetabek/create-step-one', [JabodetabekFormController::class,'postCreateStepOne'])->name('forms.jabodetabek.create.step.one.post');
 
-Route::get('/create-step-two-1', [FormController::class,'createStepTwo1'])->name('forms.create.step.two.1');
+Route::get('jabodetabek/create-step-two-1', [JabodetabekFormController::class,'createStepTwo1'])->name('forms.jabodetabek.create.step.two.1');
 
-Route::post('/create-step-two-1', [FormController::class,'postCreateStepTwo1'])->name('forms.create.step.two.post.1');
+Route::post('jabodetabek/create-step-two-1', [JabodetabekFormController::class,'postCreateStepTwo1'])->name('forms.jabodetabek.create.step.two.post.1');
 
-Route::get('/create-step-two-2', [FormController::class,'createStepTwo2'])->name('forms.create.step.two.2');
+Route::get('jabodetabek/create-step-two-2', [JabodetabekFormController::class,'createStepTwo2'])->name('forms.jabodetabek.create.step.two.2');
 
-Route::post('/create-step-two-2', [FormController::class,'postCreateStepTwo2'])->name('forms.create.step.two.post.2');
+Route::post('jabodetabek/create-step-two-2', [JabodetabekFormController::class,'postCreateStepTwo2'])->name('forms.jabodetabek.create.step.two.post.2');
 
-Route::get('/create-step-three', [FormController::class,'createStepThree'])->name('forms.create.step.three');
+Route::get('jabodetabek/create-step-three', [JabodetabekFormController::class,'createStepThree'])->name('forms.jabodetabek.create.step.three');
 
-Route::post('/create-step-three', [FormController::class,'postCreateStepThree'])->name('forms.create.step.three.post');
+Route::post('jabodetabek/create-step-three', [JabodetabekFormController::class,'postCreateStepThree'])->name('forms.jabodetabek.create.step.three.post');
 
-Route::get('/create-step-four-A', [FormController::class,'createStepFourA'])->name('forms.create.step.four.a');
+Route::get('jabodetabek/create-step-four-A', [JabodetabekFormController::class,'createStepFourA'])->name('forms.jabodetabek.create.step.four.a');
 
-Route::post('/create-step-four-A', [FormController::class,'postCreateStepFourA'])->name('forms.create.step.four.a.post');
+Route::post('jabodetabek/create-step-four-A', [JabodetabekFormController::class,'postCreateStepFourA'])->name('forms.jabodetabek.create.step.four.a.post');
 
-Route::get('/create-step-four-B1', [FormController::class,'createStepFourB1'])->name('forms.create.step.four.b1');
+Route::get('jabodetabek/create-step-four-B1', [JabodetabekFormController::class,'createStepFourB1'])->name('forms.jabodetabek.create.step.four.b1');
 
-Route::post('/create-step-four-B1', [FormController::class,'postCreateStepFourB1'])->name('forms.create.step.four.b1.post');
+Route::post('jabodetabek/create-step-four-B1', [JabodetabekFormController::class,'postCreateStepFourB1'])->name('forms.jabodetabek.create.step.four.b1.post');
 
-Route::get('/create-step-four-B2', [FormController::class,'createStepFourB2'])->name('forms.create.step.four.b2');
+Route::get('jabodetabek/create-step-four-B2', [JabodetabekFormController::class,'createStepFourB2'])->name('forms.jabodetabek.create.step.four.b2');
 
-Route::post('/create-step-four-B2', [FormController::class,'postCreateStepFourB2'])->name('forms.create.step.four.b2.post');
+Route::post('jabodetabek/create-step-four-B2', [JabodetabekFormController::class,'postCreateStepFourB2'])->name('forms.jabodetabek.create.step.four.b2.post');
 
-Route::get('/create-step-four-C', [FormController::class,'createStepFourC'])->name('forms.create.step.four.c');
+Route::get('jabodetabek/create-step-four-C', [JabodetabekFormController::class,'createStepFourC'])->name('forms.jabodetabek.create.step.four.c');
 
-Route::post('/create-step-four-C', [FormController::class,'postCreateStepFourC'])->name('forms.create.step.four.c.post');
+Route::post('jabodetabek/create-step-four-C', [JabodetabekFormController::class,'postCreateStepFourC'])->name('forms.jabodetabek.create.step.four.c.post');
 
-Route::get('/forms-success', [FormController::class,'formSuccess'])->name('forms.success');
+Route::get('jabodetabek/forms-success', [JabodetabekFormController::class,'formSuccess'])->name('forms.jabodetabek.success');
+
+
+Route::get('jateng-diy/', [JatengDIYFormController::class,'index'])->name('forms.jateng-diy.index');
+
+Route::get('jateng-diy/create-step-one', [JatengDIYFormController::class,'createStepOne'])->name('forms.jateng-diy.create.step.one');
+
+Route::post('jateng-diy/create-step-one', [JatengDIYFormController::class,'postCreateStepOne'])->name('forms.jateng-diy.create.step.one.post');
+
+Route::get('jateng-diy/create-step-two-1', [JatengDIYFormController::class,'createStepTwo1'])->name('forms.jateng-diy.create.step.two.1');
+
+Route::post('jateng-diy/create-step-two-1', [JatengDIYFormController::class,'postCreateStepTwo1'])->name('forms.jateng-diy.create.step.two.post.1');
+
+Route::get('jateng-diy/create-step-two-2', [JatengDIYFormController::class,'createStepTwo2'])->name('forms.jateng-diy.create.step.two.2');
+
+Route::post('jateng-diy/create-step-two-2', [JatengDIYFormController::class,'postCreateStepTwo2'])->name('forms.jateng-diy.create.step.two.post.2');
+
+Route::get('jateng-diy/create-step-three', [JatengDIYFormController::class,'createStepThree'])->name('forms.jateng-diy.create.step.three');
+
+Route::post('jateng-diy/create-step-three', [JatengDIYFormController::class,'postCreateStepThree'])->name('forms.jateng-diy.create.step.three.post');
+
+Route::get('jateng-diy/create-step-four-A', [JatengDIYFormController::class,'createStepFourA'])->name('forms.jateng-diy.create.step.four.a');
+
+Route::post('jateng-diy/create-step-four-A', [JatengDIYFormController::class,'postCreateStepFourA'])->name('forms.jateng-diy.create.step.four.a.post');
+
+Route::get('jateng-diy/create-step-four-B1', [JatengDIYFormController::class,'createStepFourB1'])->name('forms.jateng-diy.create.step.four.b1');
+
+Route::post('jateng-diy/create-step-four-B1', [JatengDIYFormController::class,'postCreateStepFourB1'])->name('forms.jateng-diy.create.step.four.b1.post');
+
+Route::get('jateng-diy/create-step-four-B2', [JatengDIYFormController::class,'createStepFourB2'])->name('forms.jateng-diy.create.step.four.b2');
+
+Route::post('jateng-diy/create-step-four-B2', [JatengDIYFormController::class,'postCreateStepFourB2'])->name('forms.jateng-diy.create.step.four.b2.post');
+
+Route::get('jateng-diy/create-step-four-C', [JatengDIYFormController::class,'createStepFourC'])->name('forms.jateng-diy.create.step.four.c');
+
+Route::post('jateng-diy/create-step-four-C', [JatengDIYFormController::class,'postCreateStepFourC'])->name('forms.jateng-diy.create.step.four.c.post');
+
+Route::get('jateng-diy/forms-success', [JatengDIYFormController::class,'formSuccess'])->name('forms.jateng-diy.success');
 
