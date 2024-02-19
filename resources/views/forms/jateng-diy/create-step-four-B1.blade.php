@@ -57,10 +57,6 @@
                                     <label for="lrt">LRT</label>
                                 </div>
                                 <div>
-                                    <input type="checkbox" name="kendaraan_berangkat_mrt" value="1" {{ isset($forms) && $forms->kendaraan_berangkat_mrt ? 'checked' : '' }}>
-                                    <label for="mrt">MRT</label>
-                                </div>
-                                <div>
                                     <input type="checkbox" name="kendaraan_berangkat_brt" value="1" {{ isset($forms) && $forms->kendaraan_berangkat_brt ? 'checked' : '' }}>
                                     <label for="brt">BRT</label>
                                 </div>
@@ -82,10 +78,6 @@
                                 <div>
                                     <input type="checkbox" name="kendaraan_pulang_lrt" value="1" {{ isset($forms) && $forms->kendaraan_pulang_lrt ? 'checked' : '' }}>
                                     <label for="lrt">LRT</label>
-                                </div>
-                                <div>
-                                    <input type="checkbox" name="kendaraan_pulang_mrt" value="1" {{ isset($forms) && $forms->kendaraan_pulang_mrt ? 'checked' : '' }}>
-                                    <label for="mrt">MRT</label>
                                 </div>
                                 <div>
                                     <input type="checkbox" name="kendaraan_pulang_brt" value="1" {{ isset($forms) && $forms->kendaraan_pulang_brt ? 'checked' : '' }}>
