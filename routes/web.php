@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\FormController;
 use App\Http\Controllers\JabodetabekFormController;
 use App\Http\Controllers\JatengDIYFormController;
 
@@ -15,6 +16,7 @@ use App\Http\Controllers\JatengDIYFormController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+Route::get('/', [FormController::class,'index'])->name('forms.index');
 
 Route::get('jabodetabek/', [JabodetabekFormController::class,'index'])->name('forms.jabodetabek.index');
 
