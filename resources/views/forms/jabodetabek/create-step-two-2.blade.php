@@ -47,7 +47,7 @@
                                     <br>
                                     <p>Isilah data dengan menetapkan titik/point pada peta di bawah.</p>
                                 </div>
-                                <div id="map" style="height:400px; width: 400px;" class="my-6"></div>
+                                <div id="map" style="height:400px; width: 100%;" class="my-6"></div>
 
                                 <script>
                                     let map;

@@ -8,20 +8,20 @@
 
                     <div class="card-body">
                             <form id="directionsForm">
-                                <div class="row">
+                                <div class="row form-group">
                                     <div class="col-6">
-                                        <<label for="startAddress">Starting Address:</label>
-                                        <input type="text" id="startAddress" autocomplete="on" required>
+                                        <label for="startAddress">Starting Address:</label>
+                                        <input class="form-control" type="text" id="startAddress" autocomplete="on" required>
                                     </div>
                                     <div class="col-6">
                                         <label for="endAddress">Destination Address:</label>
-                                        <input type="text" id="endAddress" autocomplete="on" required>
+                                        <input class="form-control" type="text" id="endAddress" autocomplete="on" required>
                                     </div>
                                 </div>
-                                <div class="row">
+                                <div class="row form-group">
                                     <div class="col-6">
                                     <label for="transportMode">Transport Mode:</label>
-                                        <select id="transportMode">
+                                        <select class="form-control" id="transportMode">
                                             <option value="DRIVING">Driving</option>
                                             <option value="BICYCLING">Bicycling</option>
                                             <option value="TRANSIT">Transit</option>
@@ -29,16 +29,19 @@
                                         </select>
                                     </div>
                                 </div>
-                                <div class="row">
-                                    <div class="col-6">
-                                        <button type="submit">Get Directions</button>
-                                    </div>
+                                <div class="form-group">
+                                    <button class="btn btn-primary btn-lg btn-block" type="submit">Get Directions</button>
                                 </div>
-
-                                <div id="map" style="height:400px; width: 400px;" class="my-6"></div>
-
-                                <div id="directionsPanel"></div> 
-                                <div id="infoPanel"></div>      
+                                <div class="form-group">
+                                    <div id="map" style="height:400px; width: 100%;" class="my-6"></div>
+                                </div>
+                                <div class="orm-group">
+                                    <div id="directionsPanel"></div> 
+                                </div>
+                                <div class="form-group">
+                                    <div id="infoPanel"></div>  
+                                </div>
+    
                                 
                                 <script src="{{ URL::asset('js/app.js'); }}"></script>
                                 <script async defer src="https://maps.googleapis.com/maps/api/js?key={{ config('services.google_maps.api_key') }}&libraries=places&callback=initMap" type="text/javascript"></script>
