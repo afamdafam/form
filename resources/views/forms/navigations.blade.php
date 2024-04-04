@@ -8,15 +8,13 @@
 
                     <div class="card-body">
                             <form id="directionsForm">
-                                <div class="row form-group">
-                                    <div class="col-6">
+                                <div class="form-group">
                                         <label for="startAddress">Starting Address:</label>
                                         <input class="form-control" type="text" id="startAddress" autocomplete="on" required>
-                                    </div>
-                                    <div class="col-6">
+                                </div>
+                                <div class="form-group">
                                         <label for="endAddress">Destination Address:</label>
                                         <input class="form-control" type="text" id="endAddress" autocomplete="on" required>
-                                    </div>
                                 </div>
                                 <div class="row form-group">
                                     <div class="col-6">
