@@ -10,12 +10,12 @@
                             <form id="directionsForm">
                                 <div class="row">
                                     <div class="col-6">
-                                        <label for="startAddress">Starting Address:</label>
-                                        <input type="text" id="startAddress" required>
+                                        <<label for="startAddress">Starting Address:</label>
+                                        <input type="text" id="startAddress" autocomplete="on" required>
                                     </div>
                                     <div class="col-6">
                                         <label for="endAddress">Destination Address:</label>
-                                        <input type="text" id="endAddress" required>
+                                        <input type="text" id="endAddress" autocomplete="on" required>
                                     </div>
                                 </div>
                                 <div class="row">
@@ -41,8 +41,7 @@
                                 <div id="infoPanel"></div>      
                                 
                                 <script src="{{ URL::asset('js/app.js'); }}"></script>
-                                <script async defer src="https://maps.googleapis.com/maps/api/js?key={{ config('services.google_maps.api_key') }}&callback=initMap"
-                                        type="text/javascript"></script>
+                                <script async defer src="https://maps.googleapis.com/maps/api/js?key={{ config('services.google_maps.api_key') }}&libraries=places&callback=initMap" type="text/javascript"></script>
                             </div>
                     </div>
                 </div>

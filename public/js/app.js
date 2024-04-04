@@ -9,10 +9,37 @@ function initMap() {
     directionsService = new google.maps.DirectionsService();
     directionsDisplay = new google.maps.DirectionsRenderer();
     directionsDisplay.setMap(map);
-    directionsDisplay.setPanel(document.getElementById('directionsPanel')); // Show route directions in directionsPanel
+    directionsDisplay.setPanel(document.getElementById('directionsPanel'));
 
-    // Initialize Distance Matrix service
     distanceService = new google.maps.DistanceMatrixService();
+
+    const startAutocomplete = new google.maps.places.Autocomplete(
+        document.getElementById('startAddress')
+    );
+    const endAutocomplete = new google.maps.places.Autocomplete(
+        document.getElementById('endAddress')
+    );
+    startAutocomplete.setTypes(['geocode']);
+    endAutocomplete.setTypes(['geocode']);
+
+    startAutocomplete.addListener('place_changed', onPlaceChanged);
+    endAutocomplete.addListener('place_changed', onPlaceChanged);
+}
+
+function onPlaceChanged() {
+    const place = this.getPlace(); 
+    if (!place.geometry) {
+        return;
+    }
+
+    this.input.value = place.formatted_address;
+
+
+    const placeName = place.name;
+    const location = place.geometry.location;
+
+    map.setCenter(location);
+    calculateAndDisplayRoute(); 
 }
 
 document.getElementById('directionsForm').addEventListener('submit', function (e) {
