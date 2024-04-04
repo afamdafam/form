@@ -18,6 +18,8 @@ use App\Http\Controllers\JatengDIYFormController;
 */
 Route::get('/', [FormController::class,'index'])->name('forms.index');
 
+Route::get('/navigations', [FormController::class,'navigations'])->name('forms.navigations');
+
 Route::get('jabodetabek/', [JabodetabekFormController::class,'index'])->name('forms.jabodetabek.index');
 
 Route::get('jabodetabek/create-step-one', [JabodetabekFormController::class,'createStepOne'])->name('forms.jabodetabek.create.step.one');

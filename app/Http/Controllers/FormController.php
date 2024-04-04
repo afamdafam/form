@@ -10,4 +10,9 @@ class FormController extends Controller
     {
         return view('forms.index');
     }
+
+    public function navigations()
+    {
+        return view('forms.navigations');
+    }
 }
