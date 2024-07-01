@@ -43,12 +43,16 @@
                             <div class="form-group">
                                 <label>Jenis Kendaraan Umum yang digunakan ketika berangkat (boleh pilih lebih dari 1):</label>
                                 <div>
-                                    <input type="checkbox" name="kendaraan_berangkat_krl" value="1" {{ isset($forms) && $forms->kendaraan_berangkat_krl ? 'checked' : '' }}>
-                                    <label for="krl">KRL</label>
+                                    <input type="checkbox" name="kendaraan_berangkat_kereta_api" value="1" {{ isset($forms) && $forms->kendaraan_berangkat_kereta_api ? 'checked' : '' }}>
+                                    <label for="kereta_api">Kereta Api</label>
                                 </div>
                                 <div>
-                                    <input type="checkbox" name="kendaraan_berangkat_lrt" value="1" {{ isset($forms) && $forms->kendaraan_berangkat_lrt ? 'checked' : '' }}>
-                                    <label for="lrt">LRT</label>
+                                    <input type="checkbox" name="kendaraan_berangkat_bus_akap" value="1" {{ isset($forms) && $forms->kendaraan_berangkat_bus_akap ? 'checked' : '' }}>
+                                    <label for="bus_akap">Bus AKAP</label>
+                                </div>
+                                <div>
+                                    <input type="checkbox" name="kendaraan_berangkat_bus_akdp" value="1" {{ isset($forms) && $forms->kendaraan_berangkat_bus_akdp ? 'checked' : '' }}>
+                                    <label for="bus_akdp">Bus AKDP</label>
                                 </div>
                                 <div>
                                     <input type="checkbox" name="kendaraan_berangkat_brt" value="1" {{ isset($forms) && $forms->kendaraan_berangkat_brt ? 'checked' : '' }}>
@@ -66,12 +70,16 @@
                             <div class="form-group">
                                 <label>Jenis Kendaraan Umum yang digunakan ketika pulang (boleh pilih lebih dari 1):</label>
                                 <div>
-                                    <input type="checkbox" name="kendaraan_pulang_krl" value="1" {{ isset($forms) && $forms->kendaraan_pulang_krl ? 'checked' : '' }}>
-                                    <label for="krl">KRL</label>
+                                    <input type="checkbox" name="kendaraan_pulang_kereta_api" value="1" {{ isset($forms) && $forms->kendaraan_pulang_kereta_api ? 'checked' : '' }}>
+                                    <label for="kereta_api">Kereta Api</label>
                                 </div>
                                 <div>
-                                    <input type="checkbox" name="kendaraan_pulang_lrt" value="1" {{ isset($forms) && $forms->kendaraan_pulang_lrt ? 'checked' : '' }}>
-                                    <label for="lrt">LRT</label>
+                                    <input type="checkbox" name="kendaraan_pulang_bus_akap" value="1" {{ isset($forms) && $forms->kendaraan_pulang_bus_akap ? 'checked' : '' }}>
+                                    <label for="bus_akap">Bus AKAP</label>
+                                </div>
+                                <div>
+                                    <input type="checkbox" name="kendaraan_pulang_bus_akdp" value="1" {{ isset($forms) && $forms->kendaraan_pulang_bus_akdp ? 'checked' : '' }}>
+                                    <label for="bus_akdp">Bus AKDP</label>
                                 </div>
                                 <div>
                                     <input type="checkbox" name="kendaraan_pulang_brt" value="1" {{ isset($forms) && $forms->kendaraan_pulang_brt ? 'checked' : '' }}>
@@ -97,7 +105,7 @@
                                 <h6>Cukup tulis angka saja, tanpa titik, koma, atau satuan</h6>
                             </div>
                             <div class="form-group">
-                                <label>Moda Transportasi Menuju Tempat Henti Angkutan Massal (boleh pilih lebih dari 1):</label>
+                                <label>MModa Transportasi dari Asal Menuju Halte/Stasiun/Terminal (boleh lebih dari 1 pilihan):</label>
                                 <div>
                                     <input type="checkbox" name="transport_henti_jalan_kaki" value="1" {{ isset($forms) && $forms->transport_henti_jalan_kaki ? 'checked' : '' }}>
                                     <label>Jalan Kaki</label>
