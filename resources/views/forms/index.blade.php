@@ -28,7 +28,8 @@
         <p><b>Bagi responden yang berpartisipasi akan ada reward secara acak bagi responden yang mengisi. Terima kasih atas partisipasinya. </b></p>
         <p><b>Silakan pilih wilayah pelayanan angkutan umum yang biasa digunakan:</b></p>
           <a href="{{ route('forms.jabodetabek.index') }}" class="btn btn-lg btn-secondary">Wilayah JABODETABEK</a>
-          <a href="{{ route('forms.jabodetabek.index') }}" class="btn btn-lg btn-secondary">Wilayah JATENG - DIY</a>
+          <a href="{{ route('forms.jateng-diy.index') }}" class="btn btn-lg btn-secondary">Wilayah JATENG - DIY</a>
+          <a href="{{ route('forms.solo.index') }}" class="btn btn-lg btn-secondary">Wilayah Solo</a>
         </p>
       </main>
 

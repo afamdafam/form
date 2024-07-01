@@ -46,6 +46,9 @@ return new class extends Migration
             $table->boolean('kendaraan_berangkat_brt')->default(0);
             $table->boolean('kendaraan_berangkat_angkutan_kota')->default(0);
             $table->boolean('kendaraan_berangkat_ojol')->default(0);
+            $table->boolean('kendaraan_berangkat_kereta_api')->default(0);
+            $table->boolean('kendaraan_berangkat_bus_akap')->default(0);
+            $table->boolean('kendaraan_berangkat_bus_akdp')->default(0);
             $table->boolean('kendaraan_pulang_mobil')->default(0);
             $table->boolean('kendaraan_pulang_motor')->default(0);
             $table->boolean('kendaraan_pulang_lainnya')->default(0);
@@ -55,6 +58,9 @@ return new class extends Migration
             $table->boolean('kendaraan_pulang_brt')->default(0);
             $table->boolean('kendaraan_pulang_angkutan_kota')->default(0);
             $table->boolean('kendaraan_pulang_ojol')->default(0);
+            $table->boolean('kendaraan_pulang_kereta_api')->default(0);
+            $table->boolean('kendaraan_pulang_bus_akap')->default(0);
+            $table->boolean('kendaraan_pulang_bus_akdp')->default(0);
             $table->integer('tarif')->nullable();
             $table->integer('waktu_transit')->nullable();
             $table->boolean('transport_henti_jalan_kaki')->default(0);
