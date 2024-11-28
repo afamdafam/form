@@ -105,7 +105,7 @@
                                 <h6>Cukup tulis angka saja, tanpa titik, koma, atau satuan</h6>
                             </div>
                             <div class="form-group">
-                                <label>MModa Transportasi dari Asal Menuju Halte/Stasiun/Terminal (boleh lebih dari 1 pilihan):</label>
+                                <label>Moda Transportasi dari Asal Menuju Halte/Stasiun/Terminal (boleh lebih dari 1 pilihan):</label>
                                 <div>
                                     <input type="checkbox" name="transport_henti_jalan_kaki" value="1" {{ isset($forms) && $forms->transport_henti_jalan_kaki ? 'checked' : '' }}>
                                     <label>Jalan Kaki</label>

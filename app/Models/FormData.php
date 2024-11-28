@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class FormData extends Model
 {
     protected $fillable = [
-        'telepon', 'profesi', 'profesi_lainnya', 'jenis_kelamin', 'umur',
+        'telepon', 'profesi', 'profesi_lainnya', 'jenis_kelamin', 'umur', 'tingkat_pendidikan',
         'ukuran_keluarga', 'kedudukan_keluarga', 'kendaraan_pribadi', 'deskripsi_kendaraan_motor',
         'deskripsi_kendaraan_mobil', 'alamat_kecamatan', 'alamat_kelurahan', 'alamat_kota',
         'alamat_latitude', 'alamat_longitude', 'tujuan_kecamatan', 'tujuan_kelurahan', 'tujuan_kota',

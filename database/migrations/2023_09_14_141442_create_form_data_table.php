@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('profesi_lainnya')->nullable();
             $table->string('jenis_kelamin')->nullable();
             $table->integer('umur')->nullable();
+            $table->string('tingkat_pendidikan')->nullable();
             $table->integer('ukuran_keluarga')->nullable();
             $table->string('kedudukan_keluarga')->nullable();
             $table->boolean('kendaraan_pribadi')->default(0);

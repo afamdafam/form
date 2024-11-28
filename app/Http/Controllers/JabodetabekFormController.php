@@ -26,6 +26,7 @@ class JabodetabekFormController extends Controller
             'profesi' => 'required',
             'jenis_kelamin' => 'required',
             'umur' => 'required|numeric',
+            'tingkat_pendidikan' => 'required',
             'ukuran_keluarga' => 'required|numeric',
             'kedudukan_keluarga' => 'required',
             'kendaraan_pribadi' => 'required',

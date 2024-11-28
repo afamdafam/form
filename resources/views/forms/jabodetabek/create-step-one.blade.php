@@ -54,6 +54,18 @@
                                 <h6>Cukup tulis angka saja, tanpa titik, koma, atau satuan</h6>
                             </div>
                             <div class="form-group">
+                                <label for="description">Tingkat Pendidikan Terakhir yang Setara:</label>
+                                <select class="form-control" id="tingkat_pendidikan" name="tingkat_pendidikan">
+                                    <option value="">Pilih Tingkat Pendidikan</option>
+                                    <option value="SD" {{ optional($forms)->tingkat_pendidikan === 'SD' ? 'selected' : '' }}>SD</option>
+                                    <option value="SMP" {{ optional($forms)->tingkat_pendidikan === 'SMP' ? 'selected' : '' }}>SMP</option>
+                                    <option value="SMA" {{ optional($forms)->tingkat_pendidikan === 'SMA' ? 'selected' : '' }}>SMA</option>
+                                    <option value="S1" {{ optional($forms)->tingkat_pendidikan === 'S1' ? 'selected' : '' }}>S1 (Sarjana)</option>
+                                    <option value="S2" {{ optional($forms)->tingkat_pendidikan === 'S2' ? 'selected' : '' }}>S2 (Magister)</option>
+                                    <option value="S3" {{ optional($forms)->tingkat_pendidikan === 'S3' ? 'selected' : ''}}>S3 (Doktor)</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
                                 <label for="description">Jumlah Anggota Keluarga (Orang):</label>
                                 <input type="number" min="0" value="{{{ $forms->ukuran_keluarga ?? '' }}}" class="form-control" id="ukuran_keluarga" name="ukuran_keluarga"/>
                                 <h6>Cukup tulis angka saja, tanpa titik, koma, atau satuan</h6>
